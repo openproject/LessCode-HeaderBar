@@ -22,6 +22,9 @@ public class MyApp extends Application {
                 .setTitleTextColor(Color.BLUE)
                 .setItemTextColor(Color.YELLOW)
                 .setHeaderBackgroundDrawable(new ColorDrawable(Color.RED))
+                .setTitleTextSize(24)
+                .setItemTextSize(10)
+                .setHeaderShadowDrawable(getResources().getDrawable(R.drawable.app_shadow))
                 .build();
     }
 }

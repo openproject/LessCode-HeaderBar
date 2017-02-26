@@ -31,10 +31,14 @@ public class HeaderBarConfig {
      */
     private static Drawable mHeaderBackgroundDrawable;
     private static Drawable mHeaderItemBackgroundDrawable;
+    private static Drawable mHeaderShadowDrawable;
     private static int mHeaderBackIcon = 0;
 
     private static int mTitleTextColor = Color.WHITE;
+    private static int mTitleTextSize = 14; // sp
+
     private static int mItemTextColor = Color.WHITE;
+    private static int mItemTextSize = 12;  // sp
 
     public static Drawable getHeaderBackgroundDrawable() {
         return mHeaderBackgroundDrawable;
@@ -51,6 +55,15 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig setHeaderItemBackgroundDrawable(Drawable headerItemBackgroundDrawable) {
         HeaderBarConfig.mHeaderItemBackgroundDrawable = headerItemBackgroundDrawable;
+        return this;
+    }
+
+    public static Drawable getHeaderShadowDrawable() {
+        return mHeaderShadowDrawable;
+    }
+
+    public HeaderBarConfig setHeaderShadowDrawable(Drawable headerShadowDrawable) {
+        HeaderBarConfig.mHeaderShadowDrawable = headerShadowDrawable;
         return this;
     }
 
@@ -72,12 +85,30 @@ public class HeaderBarConfig {
         return this;
     }
 
+    public static int getTitleTextSize() {
+        return mTitleTextSize;
+    }
+
+    public HeaderBarConfig setTitleTextSize(int titleTextSize) {
+        HeaderBarConfig.mTitleTextSize = titleTextSize;
+        return this;
+    }
+
     public static int getItemTextColor() {
         return mItemTextColor;
     }
 
     public HeaderBarConfig setItemTextColor(int itemTextColor) {
         HeaderBarConfig.mItemTextColor = itemTextColor;
+        return this;
+    }
+
+    public static int getItemTextSize() {
+        return mItemTextSize;
+    }
+
+    public HeaderBarConfig setItemTextSize(int itemTextSize) {
+        HeaderBarConfig.mItemTextSize = itemTextSize;
         return this;
     }
 
