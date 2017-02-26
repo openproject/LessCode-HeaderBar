@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 
 import com.jayfeng.lesscode.core.$;
+import com.jayfeng.lesscode.core.DisplayLess;
 import com.jayfeng.lesscode.headerbar.HeaderBarConfig;
 
 public class MyApp extends Application {
@@ -24,6 +25,7 @@ public class MyApp extends Application {
                 .setHeaderBackgroundDrawable(new ColorDrawable(Color.RED))
                 .setTitleTextSize(24)
                 .setItemTextSize(10)
+                .setHeaderHeight(DisplayLess.$dp2px(56))
                 .setHeaderShadowDrawable(getResources().getDrawable(R.drawable.app_shadow))
                 .build();
     }

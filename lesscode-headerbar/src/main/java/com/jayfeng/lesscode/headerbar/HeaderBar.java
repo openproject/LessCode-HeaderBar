@@ -23,6 +23,8 @@ public class HeaderBar extends LinearLayout {
     private int mItemTextColor;
     private int mItemTextSize;
 
+    // header
+    private int mHeaderHeight;
     private Drawable mHeaderBackground;
     private Drawable mHeaderItemBackground;
     private Drawable mHeaderShadow;
@@ -59,6 +61,7 @@ public class HeaderBar extends LinearLayout {
         mItemTextColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_color, HeaderBarConfig.getItemTextColor());
         mItemTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_item_text_size, HeaderBarConfig.getItemTextSize());
 
+        mHeaderHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_height, HeaderBarConfig.getHeaderHeight());
         if (a.hasValue(R.styleable.HeaderBar_headerbar_background)) {
             mHeaderBackground = a.getDrawable(R.styleable.HeaderBar_headerbar_background);
             mHeaderBackground.setCallback(this);
@@ -93,6 +96,7 @@ public class HeaderBar extends LinearLayout {
             mShadowView.setVisibility(View.GONE);
         }
         mHeaderContainer.setBackgroundDrawable(mHeaderBackground);
+        mHeaderContainer.getLayoutParams().height = mHeaderHeight;
     }
 
     public TextView getTitleView() {

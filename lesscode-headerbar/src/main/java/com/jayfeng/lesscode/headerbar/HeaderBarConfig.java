@@ -29,6 +29,7 @@ public class HeaderBarConfig {
      * HeaderBar Config
      * ===================================
      */
+    private static int mHeaderHeight = 56;  // dp
     private static Drawable mHeaderBackgroundDrawable;
     private static Drawable mHeaderItemBackgroundDrawable;
     private static Drawable mHeaderShadowDrawable;
@@ -39,6 +40,15 @@ public class HeaderBarConfig {
 
     private static int mItemTextColor = Color.WHITE;
     private static int mItemTextSize = 12;  // sp
+
+    public static int getHeaderHeight() {
+        return mHeaderHeight;
+    }
+
+    public HeaderBarConfig setHeaderHeight(int headerHeight) {
+        HeaderBarConfig.mHeaderHeight = headerHeight;
+        return this;
+    }
 
     public static Drawable getHeaderBackgroundDrawable() {
         return mHeaderBackgroundDrawable;

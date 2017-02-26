@@ -4,6 +4,7 @@
         <attr name="headerbar_title_text_size" format="dimension" />
         <attr name="headerbar_item_text_color" format="color" />
         <attr name="headerbar_item_text_size" format="dimension" />
+        <attr name="headerbar_height" format="dimension" />
         <attr name="headerbar_background" format="color|reference" />
         <attr name="headerbar_item_background" format="color|reference" />
         <attr name="headerbar_shadow" format="color|reference" />
