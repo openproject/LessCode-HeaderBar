@@ -25,6 +25,18 @@ public class MainActivity extends BaseActivity {
                 ToastLess.$("more");
             }
         });
+        mHeaderBar.addLeftTextItem("返回", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        mHeaderBar.addRightTextItem("分享", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastLess.$("share");
+            }
+        });
 
     }
 }

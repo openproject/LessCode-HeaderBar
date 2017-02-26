@@ -34,6 +34,7 @@ public class HeaderBarConfig {
     private static int mHeaderBackIcon = 0;
 
     private static int mTitleTextColor = Color.WHITE;
+    private static int mItemTextColor = Color.WHITE;
 
     public static Drawable getHeaderBackgroundDrawable() {
         return mHeaderBackgroundDrawable;
@@ -68,6 +69,15 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig setTitleTextColor(int titleTextColor) {
         HeaderBarConfig.mTitleTextColor = titleTextColor;
+        return this;
+    }
+
+    public static int getItemTextColor() {
+        return mItemTextColor;
+    }
+
+    public HeaderBarConfig setItemTextColor(int itemTextColor) {
+        HeaderBarConfig.mItemTextColor = itemTextColor;
         return this;
     }
 

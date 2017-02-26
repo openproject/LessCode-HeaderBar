@@ -20,6 +20,7 @@ public class MyApp extends Application {
         HeaderBarConfig.getInstance()
                 .setHeaderBackIcon(R.drawable.app_back)
                 .setTitleTextColor(Color.BLUE)
+                .setItemTextColor(Color.YELLOW)
                 .setHeaderBackgroundDrawable(new ColorDrawable(Color.RED))
                 .build();
     }

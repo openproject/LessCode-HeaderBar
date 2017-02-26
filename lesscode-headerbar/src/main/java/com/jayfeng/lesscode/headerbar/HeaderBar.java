@@ -14,6 +14,7 @@ import com.jayfeng.lesscode.core.ViewLess;
 public class HeaderBar extends LinearLayout {
 
     private int mTitleTextColor;
+    private int mItemTextColor;
     private Drawable mHeaderBackground;
     private Drawable mHeaderItemBackground;
 
@@ -43,6 +44,7 @@ public class HeaderBar extends LinearLayout {
         final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.HeaderBar, defStyle, 0);
 
         mTitleTextColor = a.getColor(R.styleable.HeaderBar_headerbar_title_text_color, HeaderBarConfig.getTitleTextColor());
+        mItemTextColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_color, HeaderBarConfig.getItemTextColor());
 
         if (a.hasValue(R.styleable.HeaderBar_headerbar_background)) {
             mHeaderBackground = a.getDrawable(R.styleable.HeaderBar_headerbar_background);
@@ -75,7 +77,12 @@ public class HeaderBar extends LinearLayout {
         mLeftContainer.addView(headerBarItemImage);
     }
 
-    public void addLeftTextItem() {
+    public void addLeftTextItem(String text, OnClickListener clickListener) {
+        HeaderBarItemText headerBarItemText = (HeaderBarItemText) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_text, mLeftContainer, false);
+        headerBarItemText.setText(text);
+        headerBarItemText.setTextColor(mItemTextColor);
+        headerBarItemText.setOnClickListener(clickListener);
+        mLeftContainer.addView(headerBarItemText);
 
     }
     public void addLeftImageItem(int imageResource, OnClickListener clickListener) {
@@ -85,7 +92,14 @@ public class HeaderBar extends LinearLayout {
         mLeftContainer.addView(headerBarItemImage);
     }
 
+    public void addRightTextItem(String text, OnClickListener clickListener) {
+        HeaderBarItemText headerBarItemText = (HeaderBarItemText) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_text, mRightContainer, false);
+        headerBarItemText.setText(text);
+        headerBarItemText.setTextColor(mItemTextColor);
+        headerBarItemText.setOnClickListener(clickListener);
+        mRightContainer.addView(headerBarItemText);
 
+    }
     public void addRightImageItem(int imageResource, OnClickListener clickListener) {
         HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
         headerBarItemImage.setImageResource(imageResource);
