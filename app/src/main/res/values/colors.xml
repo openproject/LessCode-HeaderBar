@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="header_menu_text_normal_color">#FFFFFF</color>
+    <color name="header_menu_text_pressed_color">#CCCCCC</color>
+
+    <color name="app_item_bg_pressed_color">#33eeeeee</color>
 </resources>

@@ -19,14 +19,19 @@ public class MyApp extends Application {
                 .build();
 
         HeaderBarConfig.getInstance()
-                .setHeaderBackIcon(R.drawable.app_back)
-                .setTitleTextColor(Color.BLUE)
-                .setItemTextColor(Color.YELLOW)
-                .setHeaderBackgroundDrawable(new ColorDrawable(Color.RED))
-                .setTitleTextSize(24)
-                .setItemTextSize(10)
+                // header
                 .setHeaderHeight(DisplayLess.$dp2px(56))
+                .setHeaderBackgroundDrawable(new ColorDrawable(Color.RED))
+                .setHeaderBackIcon(R.drawable.app_back)
                 .setHeaderShadowDrawable(getResources().getDrawable(R.drawable.app_shadow))
+                // title
+                .setTitleTextColor(Color.BLUE)
+                .setTitleTextSize(24)
+                // item
+                .setItemTextNormalColor(getResources().getColor(R.color.header_menu_text_normal_color))
+                .setItemTextPressedColor(getResources().getColor(R.color.header_menu_text_pressed_color))
+                .setItemTextSize(10)
+                .setItemBackgroudResource(R.drawable.app_item_bg_transparent)
                 .build();
     }
 }

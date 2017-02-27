@@ -1,7 +1,9 @@
 package com.jayfeng.lesscode.headerbar;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 
 import com.jayfeng.lesscode.core.$;
 
@@ -31,14 +33,15 @@ public class HeaderBarConfig {
      */
     private static int mHeaderHeight = 56;  // dp
     private static Drawable mHeaderBackgroundDrawable;
-    private static Drawable mHeaderItemBackgroundDrawable;
     private static Drawable mHeaderShadowDrawable;
     private static int mHeaderBackIcon = 0;
 
     private static int mTitleTextColor = Color.WHITE;
     private static int mTitleTextSize = 14; // sp
 
-    private static int mItemTextColor = Color.WHITE;
+    private static int mItemTextNormalColor = Color.WHITE;
+    private static int mItemTextPressedColor = Color.parseColor("#CCCCCC");
+    private static int mItemBackgroudResource = 0;
     private static int mItemTextSize = 12;  // sp
 
     public static int getHeaderHeight() {
@@ -56,15 +59,6 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig setHeaderBackgroundDrawable(Drawable headerBackgroundDrawable) {
         HeaderBarConfig.mHeaderBackgroundDrawable = headerBackgroundDrawable;
-        return this;
-    }
-
-    public static Drawable getHeaderItemBackgroundDrawable() {
-        return mHeaderItemBackgroundDrawable;
-    }
-
-    public HeaderBarConfig setHeaderItemBackgroundDrawable(Drawable headerItemBackgroundDrawable) {
-        HeaderBarConfig.mHeaderItemBackgroundDrawable = headerItemBackgroundDrawable;
         return this;
     }
 
@@ -104,12 +98,36 @@ public class HeaderBarConfig {
         return this;
     }
 
-    public static int getItemTextColor() {
-        return mItemTextColor;
+    public HeaderBarConfig setItemTextColor(@ColorInt int itemTextColor) {
+        HeaderBarConfig.mItemTextNormalColor = itemTextColor;
+        HeaderBarConfig.mItemTextPressedColor = itemTextColor;
+        return this;
     }
 
-    public HeaderBarConfig setItemTextColor(int itemTextColor) {
-        HeaderBarConfig.mItemTextColor = itemTextColor;
+    public static int getItemTextNormalColor() {
+        return mItemTextNormalColor;
+    }
+
+    public HeaderBarConfig setItemTextNormalColor(@ColorInt int itemTextNormalColor) {
+        HeaderBarConfig.mItemTextNormalColor = itemTextNormalColor;
+        return this;
+    }
+
+    public static int getItemTextPressedColor() {
+        return mItemTextPressedColor;
+    }
+
+    public HeaderBarConfig setItemTextPressedColor(@ColorInt int itemTextPressedColor) {
+        HeaderBarConfig.mItemTextPressedColor = itemTextPressedColor;
+        return this;
+    }
+
+    public static int getItemBackgroudResource() {
+        return mItemBackgroudResource;
+    }
+
+    public HeaderBarConfig setItemBackgroudResource(int itemBackgroudResource) {
+        HeaderBarConfig.mItemBackgroudResource = itemBackgroudResource;
         return this;
     }
 
