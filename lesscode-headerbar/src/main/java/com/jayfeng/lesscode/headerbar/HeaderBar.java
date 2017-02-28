@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -34,6 +35,7 @@ public class HeaderBar extends LinearLayout {
     private int mHeaderShadowHeight;
 
     private TextView mTitleView;
+    private EditText mSearchEditView;
     private RelativeLayout mHeaderContainer;
     private LinearLayout mLeftContainer;
     private LinearLayout mRightContainer;
@@ -84,6 +86,7 @@ public class HeaderBar extends LinearLayout {
         a.recycle();
 
         mTitleView = ViewLess.$(this, R.id.title);
+        mSearchEditView = ViewLess.$(this, R.id.search_edit);
         mHeaderContainer = ViewLess.$(this, R.id.header_container);
         mLeftContainer = ViewLess.$(this, R.id.left_container);
         mRightContainer = ViewLess.$(this, R.id.right_container);
@@ -103,6 +106,10 @@ public class HeaderBar extends LinearLayout {
 
     public TextView getTitleView() {
         return mTitleView;
+    }
+
+    public EditText getSearchEditView() {
+        return mSearchEditView;
     }
 
     public void setTitle(String title) {
@@ -176,5 +183,9 @@ public class HeaderBar extends LinearLayout {
 
     public void hideShadow() {
         mShadowView.setVisibility(View.GONE);
+    }
+
+    public void showSearch() {
+        mSearchEditView.setVisibility(View.VISIBLE);
     }
 }

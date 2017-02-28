@@ -6,8 +6,20 @@
     android:layout_height="match_parent"
     tools:context="com.jayfeng.lesscode.headerbar.app.MainActivity">
 
-    <com.jayfeng.lesscode.headerbar.HeaderBar
-        android:id="@+id/headerbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.jayfeng.lesscode.headerbar.HeaderBar
+            android:id="@+id/headerbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.jayfeng.lesscode.headerbar.HeaderBar
+            android:id="@+id/searchbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 </RelativeLayout>

@@ -24,7 +24,7 @@ public class MyApp extends Application {
                 .setHeaderBackgroundDrawable(new ColorDrawable(Color.RED))
                 .setHeaderBackIcon(R.drawable.app_back)
                 .setHeaderShadowDrawable(getResources().getDrawable(R.drawable.app_shadow))
-                .setHeaderShadowHeight(200)
+                .setHeaderShadowHeight(100)
                 // title
                 .setTitleTextColor(Color.BLUE)
                 .setTitleTextSize(24)

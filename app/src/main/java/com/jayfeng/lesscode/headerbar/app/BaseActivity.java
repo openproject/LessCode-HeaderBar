@@ -10,8 +10,9 @@ public class BaseActivity extends AppCompatActivity {
 
     protected HeaderBar mHeaderBar;
 
-    protected void initHeaderBar(boolean showBack) {
+    protected void initHeaderBar(String title, boolean showBack) {
         mHeaderBar = ViewLess.$(this, R.id.headerbar);
+        mHeaderBar.setTitle(title);
         if (showBack) {
             mHeaderBar.showBack(new View.OnClickListener() {
                 @Override
