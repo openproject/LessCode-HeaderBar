@@ -8,5 +8,6 @@
         <attr name="headerbar_height" format="dimension" />
         <attr name="headerbar_background" format="color|reference" />
         <attr name="headerbar_shadow" format="color|reference" />
+        <attr name="headerbar_shadow_height" format="dimension" />
     </declare-styleable>
 </resources>

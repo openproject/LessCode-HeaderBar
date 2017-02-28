@@ -1,5 +1,6 @@
 package com.jayfeng.lesscode.headerbar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -28,7 +29,9 @@ public class HeaderBar extends LinearLayout {
     // header
     private int mHeaderHeight;
     private Drawable mHeaderBackground;
+
     private Drawable mHeaderShadow;
+    private int mHeaderShadowHeight;
 
     private TextView mTitleView;
     private RelativeLayout mHeaderContainer;
@@ -70,6 +73,8 @@ public class HeaderBar extends LinearLayout {
         } else {
             mHeaderBackground = HeaderBarConfig.getHeaderBackgroundDrawable();
         }
+
+        mHeaderShadowHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_shadow_height, HeaderBarConfig.getHeaderShadowHeight());
         if (a.hasValue(R.styleable.HeaderBar_headerbar_shadow)) {
             mHeaderShadow = a.getDrawable(R.styleable.HeaderBar_headerbar_shadow);
         } else {
@@ -86,6 +91,7 @@ public class HeaderBar extends LinearLayout {
 
         mTitleView.setTextColor(mTitleTextColor);
         mTitleView.setTextSize(mTitleTextSize);
+        mShadowView.getLayoutParams().height = mHeaderShadowHeight;
         if (mHeaderShadow != null) {
             mShadowView.setImageDrawable(mHeaderShadow);
         } else {
@@ -105,6 +111,21 @@ public class HeaderBar extends LinearLayout {
 
     public void setTitle(int titleResource) {
         mTitleView.setText(titleResource);
+    }
+
+    public void showBack() {
+        HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
+        if (HeaderBarConfig.getHeaderBackIcon() != 0) {
+            headerBarItemImage.setImageResource(HeaderBarConfig.getHeaderBackIcon());
+        }
+        headerBarItemImage.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((Activity)getContext()).onBackPressed();
+            }
+        });
+        headerBarItemImage.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
+        mLeftContainer.addView(headerBarItemImage);
     }
 
     public void showBack(OnClickListener clickListener) {

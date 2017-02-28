@@ -33,6 +33,7 @@ public class HeaderBarConfig {
      */
     private static int mHeaderHeight = 56;  // dp
     private static Drawable mHeaderBackgroundDrawable;
+    private static int mHeaderShadowHeight = 10;  // dp
     private static Drawable mHeaderShadowDrawable;
     private static int mHeaderBackIcon = 0;
 
@@ -59,6 +60,15 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig setHeaderBackgroundDrawable(Drawable headerBackgroundDrawable) {
         HeaderBarConfig.mHeaderBackgroundDrawable = headerBackgroundDrawable;
+        return this;
+    }
+
+    public static int getHeaderShadowHeight() {
+        return mHeaderShadowHeight;
+    }
+
+    public HeaderBarConfig setHeaderShadowHeight(int headerShadowHeight) {
+        HeaderBarConfig.mHeaderShadowHeight = headerShadowHeight;
         return this;
     }
 
