@@ -20,20 +20,20 @@ public class MyApp extends Application {
 
         HeaderBarConfig.getInstance()
                 // header
-                .setHeaderHeight(DisplayLess.$dp2px(56))
-                .setHeaderBackgroundDrawable(new ColorDrawable(Color.parseColor("#1abc9c")))
-                .setHeaderBackIcon(R.drawable.app_back)
-                .setHeaderShadowDrawable(getResources().getDrawable(R.drawable.app_shadow))
-                .setHeaderShadowHeight(DisplayLess.$dp2px(16))
+                .headerHeight(DisplayLess.$dp2px(56))
+                .headerBackgroundDrawable(new ColorDrawable(Color.parseColor("#1abc9c")))
+                .headerBackIcon(R.drawable.app_back)
+                .headerShadowDrawable(getResources().getDrawable(R.drawable.app_shadow))
+                .headerShadowHeight(DisplayLess.$dp2px(16))
                 // title
-                .setTitleTextColor(Color.BLUE)
-                .setTitleTextSize(24)
-                .setSubtitleTextColor(Color.RED)
+                .titleTextColor(Color.BLUE)
+                .titleTextSize(24)
+                .subtitleTextColor(Color.RED)
                 // item
-                .setItemTextNormalColor(getResources().getColor(R.color.header_menu_text_normal_color))
-                .setItemTextPressedColor(getResources().getColor(R.color.header_menu_text_pressed_color))
-                .setItemTextSize(10)
-                .setItemBackgroudResource(R.drawable.app_item_bg_transparent)
+                .itemTextNormalColor(getResources().getColor(R.color.header_menu_text_normal_color))
+                .itemTextPressedColor(getResources().getColor(R.color.header_menu_text_pressed_color))
+                .itemTextSize(10)
+                .itemBackgroudResource(R.drawable.app_item_bg_transparent)
                 .build();
     }
 }

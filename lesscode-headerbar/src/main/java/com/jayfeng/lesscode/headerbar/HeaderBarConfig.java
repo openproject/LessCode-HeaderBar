@@ -50,125 +50,125 @@ public class HeaderBarConfig {
     private static int mItemBackgroudResource = 0;
     private static int mItemTextSize = 12;  // sp
 
-    public static int getHeaderHeight() {
+    public static int headerHeight() {
         return mHeaderHeight;
     }
 
-    public HeaderBarConfig setHeaderHeight(int headerHeight) {
+    public HeaderBarConfig headerHeight(int headerHeight) {
         HeaderBarConfig.mHeaderHeight = headerHeight;
         return this;
     }
 
-    public static Drawable getHeaderBackgroundDrawable() {
+    public static Drawable headerBackgroundDrawable() {
         return mHeaderBackgroundDrawable;
     }
 
-    public HeaderBarConfig setHeaderBackgroundDrawable(Drawable headerBackgroundDrawable) {
+    public HeaderBarConfig headerBackgroundDrawable(Drawable headerBackgroundDrawable) {
         HeaderBarConfig.mHeaderBackgroundDrawable = headerBackgroundDrawable;
         return this;
     }
 
-    public static int getHeaderShadowHeight() {
+    public static int headerShadowHeight() {
         return mHeaderShadowHeight;
     }
 
-    public HeaderBarConfig setHeaderShadowHeight(int headerShadowHeight) {
+    public HeaderBarConfig headerShadowHeight(int headerShadowHeight) {
         HeaderBarConfig.mHeaderShadowHeight = headerShadowHeight;
         return this;
     }
 
-    public static Drawable getHeaderShadowDrawable() {
+    public static Drawable headerShadowDrawable() {
         return mHeaderShadowDrawable;
     }
 
-    public HeaderBarConfig setHeaderShadowDrawable(Drawable headerShadowDrawable) {
+    public HeaderBarConfig headerShadowDrawable(Drawable headerShadowDrawable) {
         HeaderBarConfig.mHeaderShadowDrawable = headerShadowDrawable;
         return this;
     }
 
-    public static int getHeaderBackIcon() {
+    public static int headerBackIcon() {
         return mHeaderBackIcon;
     }
 
-    public HeaderBarConfig setHeaderBackIcon(int headerBackIcon) {
+    public HeaderBarConfig headerBackIcon(int headerBackIcon) {
         HeaderBarConfig.mHeaderBackIcon = headerBackIcon;
         return this;
     }
 
-    public static int getTitleTextColor() {
+    public static int titleTextColor() {
         return mTitleTextColor;
     }
 
-    public HeaderBarConfig setTitleTextColor(int titleTextColor) {
+    public HeaderBarConfig titleTextColor(int titleTextColor) {
         HeaderBarConfig.mTitleTextColor = titleTextColor;
         return this;
     }
 
-    public static int getTitleTextSize() {
+    public static int titleTextSize() {
         return mTitleTextSize;
     }
 
-    public HeaderBarConfig setTitleTextSize(int titleTextSize) {
+    public HeaderBarConfig titleTextSize(int titleTextSize) {
         HeaderBarConfig.mTitleTextSize = titleTextSize;
         return this;
     }
 
-    public static int getSubtitleTextColor() {
+    public static int subtitleTextColor() {
         return mSubtitleTextColor;
     }
 
-    public HeaderBarConfig setSubtitleTextColor(int subtitleTextColor) {
+    public HeaderBarConfig subtitleTextColor(int subtitleTextColor) {
         HeaderBarConfig.mSubtitleTextColor = subtitleTextColor;
         return this;
     }
 
-    public static int getSubtitleTextSize() {
+    public static int subtitleTextSize() {
         return mSubtitleTextSize;
     }
 
-    public HeaderBarConfig setSubtitleTextSize(int subtitleTextSize) {
+    public HeaderBarConfig subtitleTextSize(int subtitleTextSize) {
         HeaderBarConfig.mSubtitleTextSize = subtitleTextSize;
         return this;
     }
 
-    public HeaderBarConfig setItemTextColor(@ColorInt int itemTextColor) {
+    public HeaderBarConfig itemTextColor(@ColorInt int itemTextColor) {
         HeaderBarConfig.mItemTextNormalColor = itemTextColor;
         HeaderBarConfig.mItemTextPressedColor = itemTextColor;
         return this;
     }
 
-    public static int getItemTextNormalColor() {
+    public static int itemTextNormalColor() {
         return mItemTextNormalColor;
     }
 
-    public HeaderBarConfig setItemTextNormalColor(@ColorInt int itemTextNormalColor) {
+    public HeaderBarConfig itemTextNormalColor(@ColorInt int itemTextNormalColor) {
         HeaderBarConfig.mItemTextNormalColor = itemTextNormalColor;
         return this;
     }
 
-    public static int getItemTextPressedColor() {
+    public static int itemTextPressedColor() {
         return mItemTextPressedColor;
     }
 
-    public HeaderBarConfig setItemTextPressedColor(@ColorInt int itemTextPressedColor) {
+    public HeaderBarConfig itemTextPressedColor(@ColorInt int itemTextPressedColor) {
         HeaderBarConfig.mItemTextPressedColor = itemTextPressedColor;
         return this;
     }
 
-    public static int getItemBackgroudResource() {
+    public static int itemBackgroudResource() {
         return mItemBackgroudResource;
     }
 
-    public HeaderBarConfig setItemBackgroudResource(int itemBackgroudResource) {
+    public HeaderBarConfig itemBackgroudResource(int itemBackgroudResource) {
         HeaderBarConfig.mItemBackgroudResource = itemBackgroudResource;
         return this;
     }
 
-    public static int getItemTextSize() {
+    public static int itemTextSize() {
         return mItemTextSize;
     }
 
-    public HeaderBarConfig setItemTextSize(int itemTextSize) {
+    public HeaderBarConfig itemTextSize(int itemTextSize) {
         HeaderBarConfig.mItemTextSize = itemTextSize;
         return this;
     }

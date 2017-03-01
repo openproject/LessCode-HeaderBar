@@ -64,28 +64,28 @@ public class HeaderBar extends LinearLayout {
 
         final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.HeaderBar, defStyle, 0);
 
-        mTitleTextColor = a.getColor(R.styleable.HeaderBar_headerbar_title_text_color, HeaderBarConfig.getTitleTextColor());
-        mTitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_title_text_size, HeaderBarConfig.getTitleTextSize());
-        mSubtitleTextColor = a.getColor(R.styleable.HeaderBar_headerbar_subtitle_text_color, HeaderBarConfig.getSubtitleTextColor());
-        mSubtitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_subtitle_text_size, HeaderBarConfig.getSubtitleTextSize());
+        mTitleTextColor = a.getColor(R.styleable.HeaderBar_headerbar_title_text_color, HeaderBarConfig.titleTextColor());
+        mTitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_title_text_size, HeaderBarConfig.titleTextSize());
+        mSubtitleTextColor = a.getColor(R.styleable.HeaderBar_headerbar_subtitle_text_color, HeaderBarConfig.subtitleTextColor());
+        mSubtitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_subtitle_text_size, HeaderBarConfig.subtitleTextSize());
 
-        mItemTextNormalColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_normal_color, HeaderBarConfig.getItemTextNormalColor());
-        mItemTextPressedColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_pressed_color, HeaderBarConfig.getItemTextPressedColor());
-        mItemTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_item_text_size, HeaderBarConfig.getItemTextSize());
+        mItemTextNormalColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_normal_color, HeaderBarConfig.itemTextNormalColor());
+        mItemTextPressedColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_pressed_color, HeaderBarConfig.itemTextPressedColor());
+        mItemTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_item_text_size, HeaderBarConfig.itemTextSize());
 
-        mHeaderHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_height, HeaderBarConfig.getHeaderHeight());
+        mHeaderHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_height, HeaderBarConfig.headerHeight());
         if (a.hasValue(R.styleable.HeaderBar_headerbar_background)) {
             mHeaderBackground = a.getDrawable(R.styleable.HeaderBar_headerbar_background);
             mHeaderBackground.setCallback(this);
         } else {
-            mHeaderBackground = HeaderBarConfig.getHeaderBackgroundDrawable();
+            mHeaderBackground = HeaderBarConfig.headerBackgroundDrawable();
         }
 
-        mHeaderShadowHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_shadow_height, HeaderBarConfig.getHeaderShadowHeight());
+        mHeaderShadowHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_shadow_height, HeaderBarConfig.headerShadowHeight());
         if (a.hasValue(R.styleable.HeaderBar_headerbar_shadow)) {
             mHeaderShadow = a.getDrawable(R.styleable.HeaderBar_headerbar_shadow);
         } else {
-            mHeaderShadow = HeaderBarConfig.getHeaderShadowDrawable();
+            mHeaderShadow = HeaderBarConfig.headerShadowDrawable();
         }
 
         a.recycle();
@@ -152,8 +152,8 @@ public class HeaderBar extends LinearLayout {
     }
 
     public void showBack(OnClickListener clickListener) {
-        if (HeaderBarConfig.getHeaderBackIcon() != 0) {
-            showBack(HeaderBarConfig.getHeaderBackIcon(), clickListener);
+        if (HeaderBarConfig.headerBackIcon() != 0) {
+            showBack(HeaderBarConfig.headerBackIcon(), clickListener);
         }
     }
 
@@ -161,7 +161,7 @@ public class HeaderBar extends LinearLayout {
         HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
         headerBarItemImage.setImageResource(backResource);
         headerBarItemImage.setOnClickListener(clickListener);
-        headerBarItemImage.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
+        headerBarItemImage.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
         mLeftContainer.addView(headerBarItemImage);
     }
 
@@ -171,7 +171,7 @@ public class HeaderBar extends LinearLayout {
         headerBarItemText.setTextColor(HeaderBarHelper.createColorStateList(mItemTextNormalColor, mItemTextPressedColor));
         headerBarItemText.setTextSize(mItemTextSize);
         headerBarItemText.setOnClickListener(clickListener);
-        headerBarItemText.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
+        headerBarItemText.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
         mLeftContainer.addView(headerBarItemText);
 
         return headerBarItemText;
@@ -181,7 +181,7 @@ public class HeaderBar extends LinearLayout {
         HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
         headerBarItemImage.setImageResource(imageResource);
         headerBarItemImage.setOnClickListener(clickListener);
-        headerBarItemImage.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
+        headerBarItemImage.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
         mLeftContainer.addView(headerBarItemImage);
 
         return headerBarItemImage;
@@ -192,7 +192,7 @@ public class HeaderBar extends LinearLayout {
         headerBarItemText.setText(text);
         headerBarItemText.setTextColor(HeaderBarHelper.createColorStateList(mItemTextNormalColor, mItemTextPressedColor));
         headerBarItemText.setTextSize(mItemTextSize);
-        headerBarItemText.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
+        headerBarItemText.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
         headerBarItemText.setOnClickListener(clickListener);
         mRightContainer.addView(headerBarItemText);
 
@@ -203,7 +203,7 @@ public class HeaderBar extends LinearLayout {
         HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
         headerBarItemImage.setImageResource(imageResource);
         headerBarItemImage.setOnClickListener(clickListener);
-        headerBarItemImage.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
+        headerBarItemImage.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
         mRightContainer.addView(headerBarItemImage);
 
         return headerBarItemImage;
