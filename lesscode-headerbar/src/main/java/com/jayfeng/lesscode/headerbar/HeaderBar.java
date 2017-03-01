@@ -121,25 +121,23 @@ public class HeaderBar extends LinearLayout {
     }
 
     public void showBack() {
-        HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
-        if (HeaderBarConfig.getHeaderBackIcon() != 0) {
-            headerBarItemImage.setImageResource(HeaderBarConfig.getHeaderBackIcon());
-        }
-        headerBarItemImage.setOnClickListener(new OnClickListener() {
+        showBack(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((Activity)getContext()).onBackPressed();
             }
         });
-        headerBarItemImage.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
-        mLeftContainer.addView(headerBarItemImage);
     }
 
     public void showBack(OnClickListener clickListener) {
-        HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
         if (HeaderBarConfig.getHeaderBackIcon() != 0) {
-            headerBarItemImage.setImageResource(HeaderBarConfig.getHeaderBackIcon());
+            showBack(HeaderBarConfig.getHeaderBackIcon(), clickListener);
         }
+    }
+
+    public void showBack(int backResource, OnClickListener clickListener) {
+        HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
+        headerBarItemImage.setImageResource(backResource);
         headerBarItemImage.setOnClickListener(clickListener);
         headerBarItemImage.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
         mLeftContainer.addView(headerBarItemImage);
