@@ -21,10 +21,10 @@ public class MyApp extends Application {
         HeaderBarConfig.getInstance()
                 // header
                 .setHeaderHeight(DisplayLess.$dp2px(56))
-                .setHeaderBackgroundDrawable(new ColorDrawable(Color.RED))
+                .setHeaderBackgroundDrawable(new ColorDrawable(Color.parseColor("#1abc9c")))
                 .setHeaderBackIcon(R.drawable.app_back)
                 .setHeaderShadowDrawable(getResources().getDrawable(R.drawable.app_shadow))
-                .setHeaderShadowHeight(100)
+                .setHeaderShadowHeight(DisplayLess.$dp2px(16))
                 // title
                 .setTitleTextColor(Color.BLUE)
                 .setTitleTextSize(24)

@@ -143,7 +143,7 @@ public class HeaderBar extends LinearLayout {
         mLeftContainer.addView(headerBarItemImage);
     }
 
-    public void addLeftTextItem(String text, OnClickListener clickListener) {
+    public HeaderBarItemText addLeftTextItem(String text, OnClickListener clickListener) {
         HeaderBarItemText headerBarItemText = (HeaderBarItemText) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_text, mLeftContainer, false);
         headerBarItemText.setText(text);
         headerBarItemText.setTextColor(HeaderBarHelper.createColorStateList(mItemTextNormalColor, mItemTextPressedColor));
@@ -152,16 +152,20 @@ public class HeaderBar extends LinearLayout {
         headerBarItemText.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
         mLeftContainer.addView(headerBarItemText);
 
+        return headerBarItemText;
+
     }
-    public void addLeftImageItem(int imageResource, OnClickListener clickListener) {
+    public HeaderBarItemImage addLeftImageItem(int imageResource, OnClickListener clickListener) {
         HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
         headerBarItemImage.setImageResource(imageResource);
         headerBarItemImage.setOnClickListener(clickListener);
         headerBarItemImage.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
         mLeftContainer.addView(headerBarItemImage);
+
+        return headerBarItemImage;
     }
 
-    public void addRightTextItem(String text, OnClickListener clickListener) {
+    public HeaderBarItemText addRightTextItem(String text, OnClickListener clickListener) {
         HeaderBarItemText headerBarItemText = (HeaderBarItemText) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_text, mRightContainer, false);
         headerBarItemText.setText(text);
         headerBarItemText.setTextColor(HeaderBarHelper.createColorStateList(mItemTextNormalColor, mItemTextPressedColor));
@@ -170,13 +174,17 @@ public class HeaderBar extends LinearLayout {
         headerBarItemText.setOnClickListener(clickListener);
         mRightContainer.addView(headerBarItemText);
 
+        return headerBarItemText;
+
     }
-    public void addRightImageItem(int imageResource, OnClickListener clickListener) {
+    public HeaderBarItemImage addRightImageItem(int imageResource, OnClickListener clickListener) {
         HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
         headerBarItemImage.setImageResource(imageResource);
         headerBarItemImage.setOnClickListener(clickListener);
         headerBarItemImage.setBackgroundResource(HeaderBarConfig.getItemBackgroudResource());
         mRightContainer.addView(headerBarItemImage);
+
+        return headerBarItemImage;
     }
 
     public void hideShadow() {
