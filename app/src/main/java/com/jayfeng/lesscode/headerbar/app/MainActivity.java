@@ -11,6 +11,7 @@ public class MainActivity extends BaseActivity {
 
     private HeaderBar mHeaderBarWidthShadowNone;
     private HeaderBar mHeaderBarWidthDivider;
+    private HeaderBar mHeaderBarWithSubtitle;
     private HeaderBar mHeaderBarWithSearch;
     private HeaderBar mHeaderBarWithTab;
     private HeaderBar mHeaderBarWithDowndown;
@@ -48,6 +49,11 @@ public class MainActivity extends BaseActivity {
         // HeaderBar With Divider
         mHeaderBarWidthDivider = ViewLess.$(this, R.id.headerbar_divider);
         mHeaderBarWidthDivider.setTitle("HeaderBar(分割线)");
+
+        // HeaderBar With Subtitle
+        mHeaderBarWithSubtitle = ViewLess.$(this, R.id.headerbar_subtitle);
+        mHeaderBarWithSubtitle.setTitle("HeaderBar(子标题)");
+        mHeaderBarWithSubtitle.setSubtitle("我是副标题");
 
         // HeaderBar With Search
         mHeaderBarWithSearch = ViewLess.$(this, R.id.headerbar_search);

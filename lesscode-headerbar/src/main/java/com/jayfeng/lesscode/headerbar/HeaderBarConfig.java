@@ -31,15 +31,20 @@ public class HeaderBarConfig {
      * HeaderBar Config
      * ===================================
      */
+    // header
     private static int mHeaderHeight = 56;  // dp
     private static Drawable mHeaderBackgroundDrawable;
     private static int mHeaderShadowHeight = 10;  // dp
     private static Drawable mHeaderShadowDrawable;
     private static int mHeaderBackIcon = 0;
 
+    // title
     private static int mTitleTextColor = Color.WHITE;
     private static int mTitleTextSize = 14; // sp
+    private static int mSubtitleTextColor = Color.WHITE;
+    private static int mSubtitleTextSize = 12; // sp
 
+    // item
     private static int mItemTextNormalColor = Color.WHITE;
     private static int mItemTextPressedColor = Color.parseColor("#CCCCCC");
     private static int mItemBackgroudResource = 0;
@@ -105,6 +110,24 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig setTitleTextSize(int titleTextSize) {
         HeaderBarConfig.mTitleTextSize = titleTextSize;
+        return this;
+    }
+
+    public static int getSubtitleTextColor() {
+        return mSubtitleTextColor;
+    }
+
+    public HeaderBarConfig setSubtitleTextColor(int subtitleTextColor) {
+        HeaderBarConfig.mSubtitleTextColor = subtitleTextColor;
+        return this;
+    }
+
+    public static int getSubtitleTextSize() {
+        return mSubtitleTextSize;
+    }
+
+    public HeaderBarConfig setSubtitleTextSize(int subtitleTextSize) {
+        HeaderBarConfig.mSubtitleTextSize = subtitleTextSize;
         return this;
     }
 

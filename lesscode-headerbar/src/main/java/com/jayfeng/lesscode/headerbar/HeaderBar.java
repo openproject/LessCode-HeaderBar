@@ -21,6 +21,8 @@ public class HeaderBar extends LinearLayout {
     // title style
     private int mTitleTextColor;
     private int mTitleTextSize;
+    private int mSubtitleTextColor;
+    private int mSubtitleTextSize;
 
     // item style
     private int mItemTextNormalColor;
@@ -35,6 +37,7 @@ public class HeaderBar extends LinearLayout {
     private int mHeaderShadowHeight;
 
     private TextView mTitleView;
+    private TextView mSubtitleView;
     private EditText mSearchEditView;
     private RelativeLayout mHeaderContainer;
     private LinearLayout mLeftContainer;
@@ -63,6 +66,8 @@ public class HeaderBar extends LinearLayout {
 
         mTitleTextColor = a.getColor(R.styleable.HeaderBar_headerbar_title_text_color, HeaderBarConfig.getTitleTextColor());
         mTitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_title_text_size, HeaderBarConfig.getTitleTextSize());
+        mSubtitleTextColor = a.getColor(R.styleable.HeaderBar_headerbar_subtitle_text_color, HeaderBarConfig.getSubtitleTextColor());
+        mSubtitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_subtitle_text_size, HeaderBarConfig.getSubtitleTextSize());
 
         mItemTextNormalColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_normal_color, HeaderBarConfig.getItemTextNormalColor());
         mItemTextPressedColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_pressed_color, HeaderBarConfig.getItemTextPressedColor());
@@ -86,6 +91,7 @@ public class HeaderBar extends LinearLayout {
         a.recycle();
 
         mTitleView = ViewLess.$(this, R.id.title);
+        mSubtitleView = ViewLess.$(this, R.id.subtitle);
         mSearchEditView = ViewLess.$(this, R.id.search_edit);
         mHeaderContainer = ViewLess.$(this, R.id.header_container);
         mLeftContainer = ViewLess.$(this, R.id.left_container);
@@ -94,6 +100,8 @@ public class HeaderBar extends LinearLayout {
 
         mTitleView.setTextColor(mTitleTextColor);
         mTitleView.setTextSize(mTitleTextSize);
+        mSubtitleView.setTextColor(mSubtitleTextColor);
+        mSubtitleView.setTextSize(mSubtitleTextSize);
         mShadowView.getLayoutParams().height = mHeaderShadowHeight;
         if (mHeaderShadow != null) {
             mShadowView.setImageDrawable(mHeaderShadow);
@@ -108,6 +116,10 @@ public class HeaderBar extends LinearLayout {
         return mTitleView;
     }
 
+    public TextView getSubtitleView() {
+        return mSubtitleView;
+    }
+
     public EditText getSearchEditView() {
         return mSearchEditView;
     }
@@ -118,6 +130,16 @@ public class HeaderBar extends LinearLayout {
 
     public void setTitle(int titleResource) {
         mTitleView.setText(titleResource);
+    }
+
+    public void setSubtitle(String subtitle) {
+        mSubtitleView.setText(subtitle);
+        mSubtitleView.setVisibility(View.VISIBLE);
+    }
+
+    public void setSubtitle(int subtitleResource) {
+        mSubtitleView.setText(subtitleResource);
+        mSubtitleView.setVisibility(View.VISIBLE);
     }
 
     public void showBack() {

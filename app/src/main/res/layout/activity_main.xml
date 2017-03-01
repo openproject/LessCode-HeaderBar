@@ -33,6 +33,11 @@
             app:headerbar_background="#3498db"/>
 
         <com.jayfeng.lesscode.headerbar.HeaderBar
+            android:id="@+id/headerbar_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.jayfeng.lesscode.headerbar.HeaderBar
             android:id="@+id/headerbar_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

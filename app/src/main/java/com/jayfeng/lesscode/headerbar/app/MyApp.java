@@ -28,6 +28,7 @@ public class MyApp extends Application {
                 // title
                 .setTitleTextColor(Color.BLUE)
                 .setTitleTextSize(24)
+                .setSubtitleTextColor(Color.RED)
                 // item
                 .setItemTextNormalColor(getResources().getColor(R.color.header_menu_text_normal_color))
                 .setItemTextPressedColor(getResources().getColor(R.color.header_menu_text_pressed_color))
