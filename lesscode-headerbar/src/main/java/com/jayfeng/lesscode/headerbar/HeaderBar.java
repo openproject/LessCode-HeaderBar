@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -158,52 +159,33 @@ public class HeaderBar extends LinearLayout {
     }
 
     public void showBack(int backResource, OnClickListener clickListener) {
-        HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
-        headerBarItemImage.setImageResource(backResource);
-        headerBarItemImage.setOnClickListener(clickListener);
-        headerBarItemImage.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
+        HeaderBarItemImage headerBarItemImage = createHeaderBarItemImage(backResource, clickListener, mLeftContainer);
         mLeftContainer.addView(headerBarItemImage);
     }
 
     public HeaderBarItemText addLeftTextItem(String text, OnClickListener clickListener) {
-        HeaderBarItemText headerBarItemText = (HeaderBarItemText) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_text, mLeftContainer, false);
-        headerBarItemText.setText(text);
-        headerBarItemText.setTextColor(HeaderBarHelper.createColorStateList(mItemTextNormalColor, mItemTextPressedColor));
-        headerBarItemText.setTextSize(mItemTextSize);
-        headerBarItemText.setOnClickListener(clickListener);
-        headerBarItemText.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
+        HeaderBarItemText headerBarItemText = createHeaderBarItemText(text, clickListener, mLeftContainer);
         mLeftContainer.addView(headerBarItemText);
 
         return headerBarItemText;
 
     }
     public HeaderBarItemImage addLeftImageItem(int imageResource, OnClickListener clickListener) {
-        HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
-        headerBarItemImage.setImageResource(imageResource);
-        headerBarItemImage.setOnClickListener(clickListener);
-        headerBarItemImage.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
+        HeaderBarItemImage headerBarItemImage = createHeaderBarItemImage(imageResource, clickListener, mLeftContainer);
         mLeftContainer.addView(headerBarItemImage);
 
         return headerBarItemImage;
     }
 
     public HeaderBarItemText addRightTextItem(String text, OnClickListener clickListener) {
-        HeaderBarItemText headerBarItemText = (HeaderBarItemText) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_text, mRightContainer, false);
-        headerBarItemText.setText(text);
-        headerBarItemText.setTextColor(HeaderBarHelper.createColorStateList(mItemTextNormalColor, mItemTextPressedColor));
-        headerBarItemText.setTextSize(mItemTextSize);
-        headerBarItemText.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
-        headerBarItemText.setOnClickListener(clickListener);
+        HeaderBarItemText headerBarItemText = createHeaderBarItemText(text, clickListener, mRightContainer);
         mRightContainer.addView(headerBarItemText);
 
         return headerBarItemText;
 
     }
     public HeaderBarItemImage addRightImageItem(int imageResource, OnClickListener clickListener) {
-        HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, mLeftContainer, false);
-        headerBarItemImage.setImageResource(imageResource);
-        headerBarItemImage.setOnClickListener(clickListener);
-        headerBarItemImage.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
+        HeaderBarItemImage headerBarItemImage = createHeaderBarItemImage(imageResource, clickListener, mRightContainer);
         mRightContainer.addView(headerBarItemImage);
 
         return headerBarItemImage;
@@ -215,5 +197,32 @@ public class HeaderBar extends LinearLayout {
 
     public void showSearch() {
         mSearchEditView.setVisibility(View.VISIBLE);
+    }
+
+    // private impl
+    private HeaderBarItemImage createHeaderBarItemImage(int imageResource, OnClickListener clickListener, ViewGroup rootView) {
+        HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, rootView, false);
+        headerBarItemImage.setImageResource(imageResource);
+        headerBarItemImage.setOnClickListener(clickListener);
+        headerBarItemImage.setPadding(HeaderBarConfig.itemImagePaddingLeft(),
+                HeaderBarConfig.itemImagePaddingTop(),
+                HeaderBarConfig.itemImagePaddingRight(),
+                HeaderBarConfig.itemImagePaddingBottom());
+        headerBarItemImage.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
+        return headerBarItemImage;
+    }
+    // private impl
+    private HeaderBarItemText createHeaderBarItemText(String text, OnClickListener clickListener, ViewGroup rootView) {
+        HeaderBarItemText headerBarItemText = (HeaderBarItemText) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_text, mRightContainer, false);
+        headerBarItemText.setText(text);
+        headerBarItemText.setTextColor(HeaderBarHelper.createColorStateList(mItemTextNormalColor, mItemTextPressedColor));
+        headerBarItemText.setTextSize(mItemTextSize);
+        headerBarItemText.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
+        headerBarItemText.setOnClickListener(clickListener);
+        headerBarItemText.setPadding(HeaderBarConfig.itemTextPaddingLeft(),
+                HeaderBarConfig.itemTextPaddingTop(),
+                HeaderBarConfig.itemTextPaddingRight(),
+                HeaderBarConfig.itemTextPaddingBottom());
+        return headerBarItemText;
     }
 }

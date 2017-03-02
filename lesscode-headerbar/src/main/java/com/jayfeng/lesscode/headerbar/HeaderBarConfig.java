@@ -49,6 +49,14 @@ public class HeaderBarConfig {
     private static int mItemTextPressedColor = Color.parseColor("#CCCCCC");
     private static int mItemBackgroudResource = 0;
     private static int mItemTextSize = 12;  // sp
+    private static int mItemTextPaddingLeft = 0;
+    private static int mItemTextPaddingTop = 0;
+    private static int mItemTextPaddingRight = 0;
+    private static int mItemTextPaddingBottom = 0;
+    private static int mItemImagePaddingLeft = 0;
+    private static int mItemImagePaddingTop = 0;
+    private static int mItemImagePaddingRight = 0;
+    private static int mItemImagePaddingBottom = 0;
 
     public static int headerHeight() {
         return mHeaderHeight;
@@ -170,6 +178,96 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig itemTextSize(int itemTextSize) {
         HeaderBarConfig.mItemTextSize = itemTextSize;
+        return this;
+    }
+
+    public HeaderBarConfig itemTextPadding(int left, int top, int right, int bottom) {
+        HeaderBarConfig.mItemTextPaddingLeft = left;
+        HeaderBarConfig.mItemTextPaddingTop = top;
+        HeaderBarConfig.mItemTextPaddingRight = right;
+        HeaderBarConfig.mItemTextPaddingBottom = bottom;
+
+        return this;
+    }
+
+    public static int itemTextPaddingLeft() {
+        return mItemTextPaddingLeft;
+    }
+
+    public HeaderBarConfig itemTextPaddingLeft(int itemTextPaddingLeft) {
+        HeaderBarConfig.mItemTextPaddingLeft = itemTextPaddingLeft;
+        return this;
+    }
+
+    public static int itemTextPaddingTop() {
+        return mItemTextPaddingTop;
+    }
+
+    public HeaderBarConfig itemTextPaddingTop(int itemTextPaddingTop) {
+        HeaderBarConfig.mItemTextPaddingTop = itemTextPaddingTop;
+        return this;
+    }
+
+    public static int itemTextPaddingRight() {
+        return mItemTextPaddingRight;
+    }
+
+    public HeaderBarConfig itemTextPaddingRight(int itemTextPaddingRight) {
+        HeaderBarConfig.mItemTextPaddingRight = itemTextPaddingRight;
+        return this;
+    }
+
+    public static int itemTextPaddingBottom() {
+        return mItemTextPaddingBottom;
+    }
+
+    public HeaderBarConfig itemTextPaddingBottom(int itemTextPaddingBottom) {
+        HeaderBarConfig.mItemTextPaddingBottom = itemTextPaddingBottom;
+        return this;
+    }
+
+    public HeaderBarConfig itemImagePadding(int left, int top, int right, int bottom) {
+        HeaderBarConfig.mItemImagePaddingLeft = left;
+        HeaderBarConfig.mItemImagePaddingTop = top;
+        HeaderBarConfig.mItemImagePaddingRight = right;
+        HeaderBarConfig.mItemImagePaddingBottom = bottom;
+
+        return this;
+    }
+
+    public static int itemImagePaddingLeft() {
+        return mItemImagePaddingLeft;
+    }
+
+    public HeaderBarConfig itemImagePaddingLeft(int itemImagePaddingLeft) {
+        HeaderBarConfig.mItemImagePaddingLeft = itemImagePaddingLeft;
+        return this;
+    }
+
+    public static int itemImagePaddingTop() {
+        return mItemImagePaddingTop;
+    }
+
+    public HeaderBarConfig itemImagePaddingTop(int itemImagePaddingTop) {
+        HeaderBarConfig.mItemImagePaddingTop = itemImagePaddingTop;
+        return this;
+    }
+
+    public static int itemImagePaddingRight() {
+        return mItemImagePaddingRight;
+    }
+
+    public HeaderBarConfig itemImagePaddingRight(int itemImagePaddingRight) {
+        HeaderBarConfig.mItemImagePaddingRight = itemImagePaddingRight;
+        return this;
+    }
+
+    public static int itemImagePaddingBottom() {
+        return mItemImagePaddingBottom;
+    }
+
+    public HeaderBarConfig itemImagePaddingBottom(int itemImagePaddingBottom) {
+        HeaderBarConfig.mItemImagePaddingBottom = itemImagePaddingBottom;
         return this;
     }
 
