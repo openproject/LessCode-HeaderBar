@@ -2,6 +2,7 @@ package com.jayfeng.lesscode.headerbar;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 
@@ -39,8 +40,10 @@ public class HeaderBarConfig {
     private static int mHeaderBackIcon = 0;
 
     // title
+    private static Typeface mTitleTypeface = null;
     private static int mTitleTextColor = Color.WHITE;
     private static int mTitleTextSize = 14; // sp
+    private static Typeface mSubtitleTypeface = null;
     private static int mSubtitleTextColor = Color.WHITE;
     private static int mSubtitleTextSize = 12; // sp
 
@@ -121,6 +124,15 @@ public class HeaderBarConfig {
         return this;
     }
 
+    public static Typeface titleTypeface() {
+        return mTitleTypeface;
+    }
+
+    public HeaderBarConfig titleTypeface(Typeface titleTypeface) {
+        HeaderBarConfig.mTitleTypeface = titleTypeface;
+        return this;
+    }
+
     public static int subtitleTextColor() {
         return mSubtitleTextColor;
     }
@@ -136,6 +148,15 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig subtitleTextSize(int subtitleTextSize) {
         HeaderBarConfig.mSubtitleTextSize = subtitleTextSize;
+        return this;
+    }
+
+    public static Typeface subtitleTypeface() {
+        return mSubtitleTypeface;
+    }
+
+    public HeaderBarConfig subtitleTypeface(Typeface subtitleTypeface) {
+        HeaderBarConfig.mSubtitleTypeface = subtitleTypeface;
         return this;
     }
 

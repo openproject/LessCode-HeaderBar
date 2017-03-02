@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -101,8 +102,14 @@ public class HeaderBar extends LinearLayout {
 
         mTitleView.setTextColor(mTitleTextColor);
         mTitleView.setTextSize(mTitleTextSize);
+        if (HeaderBarConfig.titleTypeface() != null) {
+            mTitleView.setTypeface(HeaderBarConfig.titleTypeface());
+        }
         mSubtitleView.setTextColor(mSubtitleTextColor);
         mSubtitleView.setTextSize(mSubtitleTextSize);
+        if (HeaderBarConfig.subtitleTypeface() != null) {
+            mSubtitleView.setTypeface(HeaderBarConfig.subtitleTypeface());
+        }
         mShadowView.getLayoutParams().height = mHeaderShadowHeight;
         if (mHeaderShadow != null) {
             mShadowView.setImageDrawable(mHeaderShadow);
