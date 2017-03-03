@@ -2,9 +2,7 @@ package com.jayfeng.lesscode.headerbar;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -44,6 +42,7 @@ public class HeaderBar extends LinearLayout {
     private RelativeLayout mHeaderContainer;
     private LinearLayout mLeftContainer;
     private LinearLayout mRightContainer;
+    private RelativeLayout mCenterContainer;
     private ImageView mShadowView;
 
     public HeaderBar(Context context) {
@@ -98,6 +97,7 @@ public class HeaderBar extends LinearLayout {
         mHeaderContainer = ViewLess.$(this, R.id.header_container);
         mLeftContainer = ViewLess.$(this, R.id.left_container);
         mRightContainer = ViewLess.$(this, R.id.right_container);
+        mCenterContainer = ViewLess.$(this, R.id.center_container);
         mShadowView = ViewLess.$(this, R.id.shadow);
 
         mTitleView.setTextColor(mTitleTextColor);
@@ -204,6 +204,11 @@ public class HeaderBar extends LinearLayout {
 
     public void showSearch() {
         mSearchEditView.setVisibility(View.VISIBLE);
+    }
+
+    public RelativeLayout showCustomCenterContainer () {
+        mCenterContainer.setVisibility(View.VISIBLE);
+        return mCenterContainer;
     }
 
     // private impl

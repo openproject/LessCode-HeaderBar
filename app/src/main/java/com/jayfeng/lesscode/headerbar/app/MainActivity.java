@@ -1,7 +1,11 @@
 package com.jayfeng.lesscode.headerbar.app;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 
 import com.jayfeng.lesscode.core.ToastLess;
 import com.jayfeng.lesscode.core.ViewLess;
@@ -62,7 +66,16 @@ public class MainActivity extends BaseActivity {
 
         // HeaderBar With Divider
         mHeaderBarWithTab = ViewLess.$(this, R.id.headerbar_tab);
-        mHeaderBarWithTab.setTitle("HeaderBar(标签)");
+        mHeaderBarWithTab.showBack();
+
+        RelativeLayout customCenterContainer = mHeaderBarWithTab.showCustomCenterContainer();
+        TabLayout tabLayout = new TabLayout(this);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
+        tabLayout.addTab(tabLayout.newTab().setText("首页"));
+        tabLayout.addTab(tabLayout.newTab().setText("列表"));
+        tabLayout.addTab(tabLayout.newTab().setText("设置"));
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        customCenterContainer.addView(tabLayout, params);
 
         // HeaderBar With Divider
         mHeaderBarWithDowndown = ViewLess.$(this, R.id.headerbar_dropdown);
