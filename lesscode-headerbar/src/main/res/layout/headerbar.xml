@@ -50,6 +50,8 @@
             android:layout_toLeftOf="@id/right_container"
             android:layout_toRightOf="@id/left_container"
             android:hint="Search"
+            android:lines="1"
+            android:imeOptions="actionSearch"
             android:visibility="gone" />
 
         <RelativeLayout
