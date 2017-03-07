@@ -2,8 +2,11 @@ package com.jayfeng.lesscode.headerbar.app;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v7.widget.PopupMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 
@@ -25,6 +28,11 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // popmenu
+        View popupView = getLayoutInflater().inflate(R.layout.view_popup, null);
+        popupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        PopupWindow popupWindow = new PopupWindow(popupView, popupView.getMeasuredWidth(), popupView.getMeasuredHeight(), true);
+
         // HeaderBar
         initHeaderBar("HeaderBar(阴影)", true);
         mHeaderBar.addLeftTextItem("返回", new View.OnClickListener() {
@@ -33,12 +41,8 @@ public class MainActivity extends BaseActivity {
                 finish();
             }
         });
-        mHeaderBar.addRightTextItem("分享", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastLess.$("share");
-            }
-        });
+        mHeaderBar.addRightTextPopupItem("分享", popupWindow);
+
         mHeaderBar.addRightImageItem(R.drawable.app_more, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +83,8 @@ public class MainActivity extends BaseActivity {
 
         // HeaderBar With Divider
         mHeaderBarWithDowndown = ViewLess.$(this, R.id.headerbar_dropdown);
-        mHeaderBarWithDowndown.setTitle("HeaderBar(下拉列表)");
+        mHeaderBarWithDowndown.addRightTextPopupItem("更多", popupWindow);
+        mHeaderBarWithDowndown.setTitle("Dropdown", popupWindow);
 
     }
 }

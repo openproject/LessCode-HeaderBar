@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.v4.widget.PopupWindowCompat;
+import android.support.v7.view.menu.MenuPopupHelper;
+import android.support.v7.widget.PopupMenu;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +15,13 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jayfeng.lesscode.core.ViewLess;
+
+import java.lang.reflect.Field;
 
 public class HeaderBar extends LinearLayout {
 
@@ -136,6 +143,17 @@ public class HeaderBar extends LinearLayout {
         mTitleView.setText(title);
     }
 
+    public void setTitle(String title, final PopupWindow popupWindow) {
+        mTitleView.setText(title);
+        mTitleView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int xoff = (v.getWidth() - popupWindow.getWidth()) / 2;
+                popupWindow.showAsDropDown(v, xoff, 0);
+            }
+        });
+    }
+
     public void setTitle(int titleResource) {
         mTitleView.setText(titleResource);
     }
@@ -165,36 +183,71 @@ public class HeaderBar extends LinearLayout {
         }
     }
 
-    public void showBack(int backResource, OnClickListener clickListener) {
+    public HeaderBarItemImage showBack(int backResource, OnClickListener clickListener) {
         HeaderBarItemImage headerBarItemImage = createHeaderBarItemImage(backResource, clickListener, mLeftContainer);
         mLeftContainer.addView(headerBarItemImage);
+
+        return headerBarItemImage;
     }
 
-    public HeaderBarItemText addLeftTextItem(String text, OnClickListener clickListener) {
+    /**
+     * ======================
+     * Left
+     * ======================
+     */
+    public @NonNull HeaderBarItemText addLeftTextItem(String text, OnClickListener clickListener) {
         HeaderBarItemText headerBarItemText = createHeaderBarItemText(text, clickListener, mLeftContainer);
         mLeftContainer.addView(headerBarItemText);
 
         return headerBarItemText;
 
     }
-    public HeaderBarItemImage addLeftImageItem(int imageResource, OnClickListener clickListener) {
+
+    public @NonNull HeaderBarItemText addLeftTextPopupItem(String text, final PopupWindow popupWindow) {
+        HeaderBarItemText headerBarItemText = addLeftTextItem(text, createPopupWindowListener(popupWindow));
+
+        return headerBarItemText;
+    }
+
+    public @NonNull HeaderBarItemImage addLeftImageItem(int imageResource, OnClickListener clickListener) {
         HeaderBarItemImage headerBarItemImage = createHeaderBarItemImage(imageResource, clickListener, mLeftContainer);
         mLeftContainer.addView(headerBarItemImage);
 
         return headerBarItemImage;
     }
 
-    public HeaderBarItemText addRightTextItem(String text, OnClickListener clickListener) {
+    public @NonNull HeaderBarItemImage addLeftImagePopupItem(int imageResource, final PopupWindow popupWindow) {
+        HeaderBarItemImage headerBarItemImage = addLeftImageItem(imageResource, createPopupWindowListener(popupWindow));
+        return headerBarItemImage;
+    }
+
+    /**
+     * ======================
+     * Right
+     * ======================
+     */
+    public @NonNull HeaderBarItemText addRightTextItem(String text, OnClickListener clickListener) {
         HeaderBarItemText headerBarItemText = createHeaderBarItemText(text, clickListener, mRightContainer);
         mRightContainer.addView(headerBarItemText);
 
         return headerBarItemText;
-
     }
-    public HeaderBarItemImage addRightImageItem(int imageResource, OnClickListener clickListener) {
+
+    public @NonNull HeaderBarItemText addRightTextPopupItem(String text, final PopupWindow popupWindow) {
+        HeaderBarItemText headerBarItemText = addRightTextItem(text, createPopupWindowListener(popupWindow));
+
+        return headerBarItemText;
+    }
+
+    public @NonNull HeaderBarItemImage addRightImageItem(int imageResource, OnClickListener clickListener) {
         HeaderBarItemImage headerBarItemImage = createHeaderBarItemImage(imageResource, clickListener, mRightContainer);
         mRightContainer.addView(headerBarItemImage);
 
+        return headerBarItemImage;
+    }
+
+    public @NonNull HeaderBarItemImage addRightImagePopupItem(int imageResource, final PopupWindow popupWindow) {
+        HeaderBarItemImage headerBarItemImage = addRightImageItem(imageResource, createPopupWindowListener(popupWindow));
         return headerBarItemImage;
     }
 
@@ -212,7 +265,7 @@ public class HeaderBar extends LinearLayout {
     }
 
     // private impl
-    private HeaderBarItemImage createHeaderBarItemImage(int imageResource, OnClickListener clickListener, ViewGroup rootView) {
+    private @NonNull HeaderBarItemImage createHeaderBarItemImage(int imageResource, OnClickListener clickListener, ViewGroup rootView) {
         HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, rootView, false);
         headerBarItemImage.setImageResource(imageResource);
         headerBarItemImage.setOnClickListener(clickListener);
@@ -224,7 +277,7 @@ public class HeaderBar extends LinearLayout {
         return headerBarItemImage;
     }
     // private impl
-    private HeaderBarItemText createHeaderBarItemText(String text, OnClickListener clickListener, ViewGroup rootView) {
+    private @NonNull HeaderBarItemText createHeaderBarItemText(String text, OnClickListener clickListener, ViewGroup rootView) {
         HeaderBarItemText headerBarItemText = (HeaderBarItemText) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_text, mRightContainer, false);
         headerBarItemText.setText(text);
         headerBarItemText.setTextColor(HeaderBarHelper.createColorStateList(mItemTextNormalColor, mItemTextPressedColor));
@@ -236,5 +289,14 @@ public class HeaderBar extends LinearLayout {
                 HeaderBarConfig.itemTextPaddingRight(),
                 HeaderBarConfig.itemTextPaddingBottom());
         return headerBarItemText;
+    }
+
+    private OnClickListener createPopupWindowListener(final PopupWindow popupWindow) {
+        return new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.showAsDropDown(v);
+            }
+        };
     }
 }

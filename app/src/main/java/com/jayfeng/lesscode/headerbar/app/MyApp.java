@@ -33,6 +33,7 @@ public class MyApp extends Application {
                 .itemTextNormalColor(getResources().getColor(R.color.header_menu_text_normal_color))
                 .itemTextPressedColor(getResources().getColor(R.color.header_menu_text_pressed_color))
                 .itemTextSize(10)
+                .itemTextPadding(DisplayLess.$dp2px(16), 0, DisplayLess.$dp2px(16), 0)
                 .itemBackgroudResource(R.drawable.app_item_bg_transparent)
                 .build();
     }
