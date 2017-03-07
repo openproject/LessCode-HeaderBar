@@ -8,7 +8,7 @@ a common header bar ui for android
 ## Gradle
 
 ```groovy
-compile('com.jayfeng:lesscode-lesscode:0.6');
+compile('com.jayfeng:lesscode-lesscode:0.8');
 ```
 
 ## Overview
@@ -16,7 +16,7 @@ compile('com.jayfeng:lesscode-lesscode:0.6');
 > * 支持副标题
 > * 支持阴影
 > * 支持搜索
-> * 支持下拉菜单(待开发)
+> * 支持弹窗
 > * 使用非常简单
 
 ## Usage
