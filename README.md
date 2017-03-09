@@ -8,7 +8,7 @@ a common header bar ui for android
 ## Gradle
 
 ```groovy
-compile('com.jayfeng:lesscode-lesscode:0.8');
+compile('com.jayfeng:lesscode-lesscode:1.0');
 ```
 
 ## Overview
@@ -50,17 +50,18 @@ HeaderBarConfig.getInstance()
 除了全局配置之外，也可以为每个HeaderBar直接设置一些属性值，
 ```xml
 <declare-styleable name="HeaderBar">
-    <attr name="headerbar_title_text_color" format="color" />
-    <attr name="headerbar_title_text_size" format="dimension" />
-    <attr name="headerbar_subtitle_text_color" format="color" />
-    <attr name="headerbar_subtitle_text_size" format="dimension" />
-    <attr name="headerbar_item_text_normal_color" format="color" />
-    <attr name="headerbar_item_text_pressed_color" format="color" />
-    <attr name="headerbar_item_text_size" format="dimension" />
-    <attr name="headerbar_height" format="dimension" />
-    <attr name="headerbar_background" format="color|reference" />
-    <attr name="headerbar_shadow" format="color|reference" />
-    <attr name="headerbar_shadow_height" format="dimension" />
+    <attr name="hb_title_text_color" format="color" />
+    <attr name="hb_title_text_size" format="dimension" />
+    <attr name="hb_subtitle_text_color" format="color" />
+    <attr name="hb_subtitle_text_size" format="dimension" />
+    <attr name="hb_item_text_normal_color" format="color" />
+    <attr name="hb_item_text_pressed_color" format="color" />
+    <attr name="hb_item_text_size" format="dimension" />
+    <attr name="hb_tab_bottom_background" format="color|reference" />
+    <attr name="hb_height" format="dimension" />
+    <attr name="hb_background" format="color|reference" />
+    <attr name="hb_shadow" format="color|reference" />
+    <attr name="hb_shadow_height" format="dimension" />
 </declare-styleable>
 ```
 

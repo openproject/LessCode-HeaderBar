@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.support.v4.widget.PopupWindowCompat;
-import android.support.v7.view.menu.MenuPopupHelper;
-import android.support.v7.widget.PopupMenu;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +17,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jayfeng.lesscode.core.ViewLess;
-
-import java.lang.reflect.Field;
 
 public class HeaderBar extends LinearLayout {
 
