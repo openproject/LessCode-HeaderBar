@@ -66,6 +66,12 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
     <ImageView
         android:id="@+id/shadow"
         android:layout_width="match_parent"

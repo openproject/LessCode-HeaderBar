@@ -21,6 +21,7 @@ public class MainActivity extends BaseActivity {
     private HeaderBar mHeaderBarWithSubtitle;
     private HeaderBar mHeaderBarWithSearch;
     private HeaderBar mHeaderBarWithTab;
+    private HeaderBar mHeaderBarWithBottomTab;
     private HeaderBar mHeaderBarWithDowndown;
 
     @Override
@@ -68,7 +69,7 @@ public class MainActivity extends BaseActivity {
         mHeaderBarWithSearch.showBack();
         mHeaderBarWithSearch.showSearch();
 
-        // HeaderBar With Divider
+        // HeaderBar With Tab
         mHeaderBarWithTab = ViewLess.$(this, R.id.headerbar_tab);
         mHeaderBarWithTab.showBack();
 
@@ -80,6 +81,19 @@ public class MainActivity extends BaseActivity {
         tabLayout.addTab(tabLayout.newTab().setText("设置"));
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         customCenterContainer.addView(tabLayout, params);
+
+        // HeaderBar With Tab on bottom
+        mHeaderBarWithBottomTab = ViewLess.$(this, R.id.headerbar_tab_bottom);
+        mHeaderBarWithBottomTab.setTitle("底部标签页");
+        mHeaderBarWithBottomTab.showBack();
+        RelativeLayout customBottomContainer = mHeaderBarWithBottomTab.showCustomBottomContainer();
+        TabLayout bottomTabLayout = new TabLayout(this);
+        bottomTabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
+        bottomTabLayout.addTab(bottomTabLayout.newTab().setText("标签一"));
+        bottomTabLayout.addTab(bottomTabLayout.newTab().setText("标签二"));
+        bottomTabLayout.addTab(bottomTabLayout.newTab().setText("标签三"));
+        RelativeLayout.LayoutParams bottomTabParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        customBottomContainer.addView(bottomTabLayout, bottomTabParams);
 
         // HeaderBar With Divider
         mHeaderBarWithDowndown = ViewLess.$(this, R.id.headerbar_dropdown);

@@ -1,6 +1,5 @@
 package com.jayfeng.lesscode.headerbar;
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -60,6 +59,9 @@ public class HeaderBarConfig {
     private static int mItemImagePaddingTop = 0;
     private static int mItemImagePaddingRight = 0;
     private static int mItemImagePaddingBottom = 0;
+
+    // tab
+    private static Drawable mTabBottomBackgroundDrawable;
 
     public static int headerHeight() {
         return mHeaderHeight;
@@ -289,6 +291,15 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig itemImagePaddingBottom(int itemImagePaddingBottom) {
         HeaderBarConfig.mItemImagePaddingBottom = itemImagePaddingBottom;
+        return this;
+    }
+
+    public static Drawable tabBottomBackgroundDrawable() {
+        return mTabBottomBackgroundDrawable;
+    }
+
+    public HeaderBarConfig tabBottomBackgroundDrawable(Drawable tabBottomBackgroundDrawable) {
+        HeaderBarConfig.mTabBottomBackgroundDrawable = tabBottomBackgroundDrawable;
         return this;
     }
 

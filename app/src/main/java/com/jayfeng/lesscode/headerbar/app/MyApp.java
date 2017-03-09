@@ -34,7 +34,10 @@ public class MyApp extends Application {
                 .itemTextPressedColor(getResources().getColor(R.color.header_menu_text_pressed_color))
                 .itemTextSize(10)
                 .itemTextPadding(DisplayLess.$dp2px(16), 0, DisplayLess.$dp2px(16), 0)
+                .itemImagePadding(DisplayLess.$dp2px(8), 0, DisplayLess.$dp2px(8), 0)
                 .itemBackgroudResource(R.drawable.app_item_bg_transparent)
+                // tab
+                .tabBottomBackgroundDrawable(new ColorDrawable(Color.parseColor("#1abc9c")))
                 .build();
     }
 }

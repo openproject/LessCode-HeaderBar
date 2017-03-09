@@ -49,6 +49,12 @@
             android:layout_height="wrap_content"
             app:headerbar_background="#e67e22"/>
 
+        <com.jayfeng.lesscode.headerbar.HeaderBar
+            android:id="@+id/headerbar_tab_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerbar_background="#CCC"
+            app:headerbar_tab_bottom_background="#CCC" />
 
         <com.jayfeng.lesscode.headerbar.HeaderBar
             android:id="@+id/headerbar_dropdown"

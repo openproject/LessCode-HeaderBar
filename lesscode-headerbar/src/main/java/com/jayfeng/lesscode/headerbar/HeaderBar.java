@@ -39,9 +39,11 @@ public class HeaderBar extends LinearLayout {
     // header
     private int mHeaderHeight;
     private Drawable mHeaderBackground;
-
     private Drawable mHeaderShadow;
     private int mHeaderShadowHeight;
+
+    // tab
+    private Drawable mTabBottomBackground;
 
     private TextView mTitleView;
     private TextView mSubtitleView;
@@ -50,6 +52,7 @@ public class HeaderBar extends LinearLayout {
     private LinearLayout mLeftContainer;
     private LinearLayout mRightContainer;
     private RelativeLayout mCenterContainer;
+    private RelativeLayout mBottomContainer;
     private ImageView mShadowView;
 
     public HeaderBar(Context context) {
@@ -81,6 +84,15 @@ public class HeaderBar extends LinearLayout {
         mItemTextPressedColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_pressed_color, HeaderBarConfig.itemTextPressedColor());
         mItemTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_item_text_size, HeaderBarConfig.itemTextSize());
 
+        // tab
+        if (a.hasValue(R.styleable.HeaderBar_headerbar_tab_bottom_background)) {
+            mTabBottomBackground = a.getDrawable(R.styleable.HeaderBar_headerbar_tab_bottom_background);
+            mTabBottomBackground.setCallback(this);
+        } else {
+            mTabBottomBackground = HeaderBarConfig.tabBottomBackgroundDrawable();
+        }
+
+        // header
         mHeaderHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_height, HeaderBarConfig.headerHeight());
         if (a.hasValue(R.styleable.HeaderBar_headerbar_background)) {
             mHeaderBackground = a.getDrawable(R.styleable.HeaderBar_headerbar_background);
@@ -105,6 +117,7 @@ public class HeaderBar extends LinearLayout {
         mLeftContainer = ViewLess.$(this, R.id.left_container);
         mRightContainer = ViewLess.$(this, R.id.right_container);
         mCenterContainer = ViewLess.$(this, R.id.center_container);
+        mBottomContainer = ViewLess.$(this, R.id.bottom_container);
         mShadowView = ViewLess.$(this, R.id.shadow);
 
         mTitleView.setTextColor(mTitleTextColor);
@@ -125,6 +138,10 @@ public class HeaderBar extends LinearLayout {
         }
         mHeaderContainer.setBackgroundDrawable(mHeaderBackground);
         mHeaderContainer.getLayoutParams().height = mHeaderHeight;
+
+        if (mTabBottomBackground != null) {
+            mBottomContainer.setBackgroundDrawable(mTabBottomBackground);
+        }
     }
 
     public TextView getTitleView() {
@@ -150,6 +167,17 @@ public class HeaderBar extends LinearLayout {
             public void onClick(View v) {
                 int xoff = (v.getWidth() - popupWindow.getWidth()) / 2;
                 popupWindow.showAsDropDown(v, xoff, 0);
+            }
+        });
+    }
+
+    public void setTitle(String title, final PopupWindow popupWindow, final int xoffset, final int yoffset) {
+        mTitleView.setText(title);
+        mTitleView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int xoff = (v.getWidth() - popupWindow.getWidth()) / 2 + xoffset;
+                popupWindow.showAsDropDown(v, xoff, yoffset);
             }
         });
     }
@@ -209,6 +237,12 @@ public class HeaderBar extends LinearLayout {
         return headerBarItemText;
     }
 
+    public @NonNull HeaderBarItemText addLeftTextPopupItem(String text, final PopupWindow popupWindow, int xoffset, int yoffset) {
+        HeaderBarItemText headerBarItemText = addLeftTextItem(text, createPopupWindowListener(popupWindow, xoffset, yoffset));
+
+        return headerBarItemText;
+    }
+
     public @NonNull HeaderBarItemImage addLeftImageItem(int imageResource, OnClickListener clickListener) {
         HeaderBarItemImage headerBarItemImage = createHeaderBarItemImage(imageResource, clickListener, mLeftContainer);
         mLeftContainer.addView(headerBarItemImage);
@@ -218,6 +252,11 @@ public class HeaderBar extends LinearLayout {
 
     public @NonNull HeaderBarItemImage addLeftImagePopupItem(int imageResource, final PopupWindow popupWindow) {
         HeaderBarItemImage headerBarItemImage = addLeftImageItem(imageResource, createPopupWindowListener(popupWindow));
+        return headerBarItemImage;
+    }
+
+    public @NonNull HeaderBarItemImage addLeftImagePopupItem(int imageResource, final PopupWindow popupWindow, int xoffset, int yoffset) {
+        HeaderBarItemImage headerBarItemImage = addLeftImageItem(imageResource, createPopupWindowListener(popupWindow, xoffset, yoffset));
         return headerBarItemImage;
     }
 
@@ -239,6 +278,12 @@ public class HeaderBar extends LinearLayout {
         return headerBarItemText;
     }
 
+    public @NonNull HeaderBarItemText addRightTextPopupItem(String text, final PopupWindow popupWindow, int xoffset, int yoffset) {
+        HeaderBarItemText headerBarItemText = addRightTextItem(text, createPopupWindowListener(popupWindow, xoffset, yoffset));
+
+        return headerBarItemText;
+    }
+
     public @NonNull HeaderBarItemImage addRightImageItem(int imageResource, OnClickListener clickListener) {
         HeaderBarItemImage headerBarItemImage = createHeaderBarItemImage(imageResource, clickListener, mRightContainer);
         mRightContainer.addView(headerBarItemImage);
@@ -251,6 +296,11 @@ public class HeaderBar extends LinearLayout {
         return headerBarItemImage;
     }
 
+    public @NonNull HeaderBarItemImage addRightImagePopupItem(int imageResource, final PopupWindow popupWindow, int xoffset, int yoffset) {
+        HeaderBarItemImage headerBarItemImage = addRightImageItem(imageResource, createPopupWindowListener(popupWindow, xoffset, yoffset));
+        return headerBarItemImage;
+    }
+
     public void hideShadow() {
         mShadowView.setVisibility(View.GONE);
     }
@@ -259,9 +309,22 @@ public class HeaderBar extends LinearLayout {
         mSearchEditView.setVisibility(View.VISIBLE);
     }
 
+    public RelativeLayout getCenterContainer() {
+        return mCenterContainer;
+    }
+
     public RelativeLayout showCustomCenterContainer () {
         mCenterContainer.setVisibility(View.VISIBLE);
         return mCenterContainer;
+    }
+
+    public RelativeLayout getBottomContainer() {
+        return mBottomContainer;
+    }
+
+    public RelativeLayout showCustomBottomContainer() {
+        mBottomContainer.setVisibility(View.VISIBLE);
+        return mBottomContainer;
     }
 
     // private impl
@@ -296,6 +359,15 @@ public class HeaderBar extends LinearLayout {
             @Override
             public void onClick(View v) {
                 popupWindow.showAsDropDown(v);
+            }
+        };
+    }
+
+    private OnClickListener createPopupWindowListener(final PopupWindow popupWindow, final int xoffset, final int yoffset) {
+        return new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.showAsDropDown(v, xoffset, yoffset);
             }
         };
     }
