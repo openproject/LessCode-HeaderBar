@@ -75,35 +75,35 @@ public class HeaderBar extends LinearLayout {
 
         final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.HeaderBar, defStyle, 0);
 
-        mTitleTextColor = a.getColor(R.styleable.HeaderBar_headerbar_title_text_color, HeaderBarConfig.titleTextColor());
-        mTitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_title_text_size, HeaderBarConfig.titleTextSize());
-        mSubtitleTextColor = a.getColor(R.styleable.HeaderBar_headerbar_subtitle_text_color, HeaderBarConfig.subtitleTextColor());
-        mSubtitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_subtitle_text_size, HeaderBarConfig.subtitleTextSize());
+        mTitleTextColor = a.getColor(R.styleable.HeaderBar_hb_title_text_color, HeaderBarConfig.titleTextColor());
+        mTitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_hb_title_text_size, HeaderBarConfig.titleTextSize());
+        mSubtitleTextColor = a.getColor(R.styleable.HeaderBar_hb_subtitle_text_color, HeaderBarConfig.subtitleTextColor());
+        mSubtitleTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_hb_subtitle_text_size, HeaderBarConfig.subtitleTextSize());
 
-        mItemTextNormalColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_normal_color, HeaderBarConfig.itemTextNormalColor());
-        mItemTextPressedColor = a.getColor(R.styleable.HeaderBar_headerbar_item_text_pressed_color, HeaderBarConfig.itemTextPressedColor());
-        mItemTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_item_text_size, HeaderBarConfig.itemTextSize());
+        mItemTextNormalColor = a.getColor(R.styleable.HeaderBar_hb_item_text_normal_color, HeaderBarConfig.itemTextNormalColor());
+        mItemTextPressedColor = a.getColor(R.styleable.HeaderBar_hb_item_text_pressed_color, HeaderBarConfig.itemTextPressedColor());
+        mItemTextSize = a.getDimensionPixelSize(R.styleable.HeaderBar_hb_item_text_size, HeaderBarConfig.itemTextSize());
 
         // tab
-        if (a.hasValue(R.styleable.HeaderBar_headerbar_tab_bottom_background)) {
-            mTabBottomBackground = a.getDrawable(R.styleable.HeaderBar_headerbar_tab_bottom_background);
+        if (a.hasValue(R.styleable.HeaderBar_hb_tab_bottom_background)) {
+            mTabBottomBackground = a.getDrawable(R.styleable.HeaderBar_hb_tab_bottom_background);
             mTabBottomBackground.setCallback(this);
         } else {
             mTabBottomBackground = HeaderBarConfig.tabBottomBackgroundDrawable();
         }
 
         // header
-        mHeaderHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_height, HeaderBarConfig.headerHeight());
-        if (a.hasValue(R.styleable.HeaderBar_headerbar_background)) {
-            mHeaderBackground = a.getDrawable(R.styleable.HeaderBar_headerbar_background);
+        mHeaderHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_hb_height, HeaderBarConfig.headerHeight());
+        if (a.hasValue(R.styleable.HeaderBar_hb_background)) {
+            mHeaderBackground = a.getDrawable(R.styleable.HeaderBar_hb_background);
             mHeaderBackground.setCallback(this);
         } else {
             mHeaderBackground = HeaderBarConfig.headerBackgroundDrawable();
         }
 
-        mHeaderShadowHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_headerbar_shadow_height, HeaderBarConfig.headerShadowHeight());
-        if (a.hasValue(R.styleable.HeaderBar_headerbar_shadow)) {
-            mHeaderShadow = a.getDrawable(R.styleable.HeaderBar_headerbar_shadow);
+        mHeaderShadowHeight = a.getDimensionPixelSize(R.styleable.HeaderBar_hb_shadow_height, HeaderBarConfig.headerShadowHeight());
+        if (a.hasValue(R.styleable.HeaderBar_hb_shadow)) {
+            mHeaderShadow = a.getDrawable(R.styleable.HeaderBar_hb_shadow);
         } else {
             mHeaderShadow = HeaderBarConfig.headerShadowDrawable();
         }

@@ -28,9 +28,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:headerbar_shadow="#f00"
-            app:headerbar_shadow_height="1px"
-            app:headerbar_background="#3498db"/>
+            app:hb_shadow="#f00"
+            app:hb_shadow_height="1px"
+            app:hb_background="#3498db"/>
 
         <com.jayfeng.lesscode.headerbar.HeaderBar
             android:id="@+id/headerbar_subtitle"
@@ -41,26 +41,26 @@
             android:id="@+id/headerbar_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:headerbar_background="#9b59b6"/>
+            app:hb_background="#9b59b6"/>
 
         <com.jayfeng.lesscode.headerbar.HeaderBar
             android:id="@+id/headerbar_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:headerbar_background="#e67e22"/>
+            app:hb_background="#e67e22"/>
 
         <com.jayfeng.lesscode.headerbar.HeaderBar
             android:id="@+id/headerbar_tab_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:headerbar_background="#CCC"
-            app:headerbar_tab_bottom_background="#CCC" />
+            app:hb_background="#CCC"
+            app:hb_tab_bottom_background="#CCC" />
 
         <com.jayfeng.lesscode.headerbar.HeaderBar
             android:id="@+id/headerbar_dropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:headerbar_background="#c0392b"/>
+            app:hb_background="#c0392b"/>
     </LinearLayout>
 
 </RelativeLayout>

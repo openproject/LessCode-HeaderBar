@@ -1,16 +1,16 @@
 <resources>
     <declare-styleable name="HeaderBar">
-        <attr name="headerbar_title_text_color" format="color" />
-        <attr name="headerbar_title_text_size" format="dimension" />
-        <attr name="headerbar_subtitle_text_color" format="color" />
-        <attr name="headerbar_subtitle_text_size" format="dimension" />
-        <attr name="headerbar_item_text_normal_color" format="color" />
-        <attr name="headerbar_item_text_pressed_color" format="color" />
-        <attr name="headerbar_item_text_size" format="dimension" />
-        <attr name="headerbar_tab_bottom_background" format="color|reference" />
-        <attr name="headerbar_height" format="dimension" />
-        <attr name="headerbar_background" format="color|reference" />
-        <attr name="headerbar_shadow" format="color|reference" />
-        <attr name="headerbar_shadow_height" format="dimension" />
+        <attr name="hb_title_text_color" format="color" />
+        <attr name="hb_title_text_size" format="dimension" />
+        <attr name="hb_subtitle_text_color" format="color" />
+        <attr name="hb_subtitle_text_size" format="dimension" />
+        <attr name="hb_item_text_normal_color" format="color" />
+        <attr name="hb_item_text_pressed_color" format="color" />
+        <attr name="hb_item_text_size" format="dimension" />
+        <attr name="hb_tab_bottom_background" format="color|reference" />
+        <attr name="hb_height" format="dimension" />
+        <attr name="hb_background" format="color|reference" />
+        <attr name="hb_shadow" format="color|reference" />
+        <attr name="hb_shadow_height" format="dimension" />
     </declare-styleable>
 </resources>
