@@ -38,6 +38,8 @@ public class MyApp extends Application {
                 .itemBackgroudResource(R.drawable.app_item_bg_transparent)
                 // tab
                 .tabBottomBackgroundDrawable(new ColorDrawable(Color.parseColor("#1abc9c")))
+                // popup
+                .popupBackgroundDrawable(new ColorDrawable(Color.parseColor("#1abc9c")))
                 .build();
     }
 }

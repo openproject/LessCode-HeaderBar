@@ -13,6 +13,11 @@ import android.widget.TableLayout;
 import com.jayfeng.lesscode.core.ToastLess;
 import com.jayfeng.lesscode.core.ViewLess;
 import com.jayfeng.lesscode.headerbar.HeaderBar;
+import com.jayfeng.lesscode.headerbar.popup.HeaderBarPopupHelper;
+import com.jayfeng.lesscode.headerbar.popup.OnPopupItemClick;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
@@ -97,8 +102,18 @@ public class MainActivity extends BaseActivity {
 
         // HeaderBar With Divider
         mHeaderBarWithDowndown = ViewLess.$(this, R.id.headerbar_dropdown);
-        mHeaderBarWithDowndown.addRightTextPopupItem("更多", popupWindow);
-        mHeaderBarWithDowndown.setTitle("Dropdown", popupWindow);
+        // simple popup list
+        List<String> listData = new ArrayList<>();
+        listData.add("AAAAAAAA");
+        listData.add("BBBBBBBB");
+        final PopupWindow newPopupWindow = HeaderBarPopupHelper.newPopupWindow(this, listData, new OnPopupItemClick<String>() {
+            @Override
+            public void onItemClick(int position, String s) {
+                ToastLess.$("pos: " + position + ", text: " + s);
+            }
+        });
+        mHeaderBarWithDowndown.addRightTextPopupItem("更多", newPopupWindow);
+        mHeaderBarWithDowndown.setTitle("Dropdown", newPopupWindow);
 
     }
 }

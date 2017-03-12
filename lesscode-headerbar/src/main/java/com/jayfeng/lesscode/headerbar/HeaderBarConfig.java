@@ -63,6 +63,9 @@ public class HeaderBarConfig {
     // tab
     private static Drawable mTabBottomBackgroundDrawable;
 
+    // popup
+    private static Drawable mPopupBackgroundDrawable;
+
     public static int headerHeight() {
         return mHeaderHeight;
     }
@@ -300,6 +303,15 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig tabBottomBackgroundDrawable(Drawable tabBottomBackgroundDrawable) {
         HeaderBarConfig.mTabBottomBackgroundDrawable = tabBottomBackgroundDrawable;
+        return this;
+    }
+
+    public static Drawable popupBackgroundDrawable() {
+        return mPopupBackgroundDrawable;
+    }
+
+    public HeaderBarConfig popupBackgroundDrawable(Drawable popupBackgroundDrawable) {
+        HeaderBarConfig.mPopupBackgroundDrawable = popupBackgroundDrawable;
         return this;
     }
 
