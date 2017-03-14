@@ -1,5 +1,6 @@
 package com.jayfeng.lesscode.headerbar.app;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.PopupMenu;

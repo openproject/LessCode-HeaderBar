@@ -3,6 +3,7 @@ package com.jayfeng.lesscode.headerbar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
@@ -350,6 +351,7 @@ public class HeaderBar extends LinearLayout {
     }
 
     private OnClickListener createPopupWindowListener(final PopupWindow popupWindow) {
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
         return new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -359,6 +361,7 @@ public class HeaderBar extends LinearLayout {
     }
 
     private OnClickListener createPopupWindowListener(final PopupWindow popupWindow, final int xoffset, final int yoffset) {
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
         return new OnClickListener() {
             @Override
             public void onClick(View v) {
