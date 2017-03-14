@@ -38,6 +38,13 @@
             android:layout_height="wrap_content" />
 
         <com.jayfeng.lesscode.headerbar.HeaderBar
+            android:id="@+id/headerbar_title_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hb_background="#028"
+            app:hb_tab_bottom_background="#028" />
+
+        <com.jayfeng.lesscode.headerbar.HeaderBar
             android:id="@+id/headerbar_dropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

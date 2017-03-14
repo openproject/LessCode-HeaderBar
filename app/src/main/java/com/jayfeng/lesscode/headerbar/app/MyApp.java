@@ -29,6 +29,7 @@ public class MyApp extends Application {
                 .titleTextColor(Color.BLUE)
                 .titleTextSize(24)
                 .subtitleTextColor(Color.RED)
+                .titlePadding(10, 0, 10, 0)
                 // item
                 .itemTextNormalColor(getResources().getColor(R.color.header_menu_text_normal_color))
                 .itemTextPressedColor(getResources().getColor(R.color.header_menu_text_pressed_color))

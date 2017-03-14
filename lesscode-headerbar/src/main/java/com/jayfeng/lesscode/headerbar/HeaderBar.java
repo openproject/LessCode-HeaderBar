@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jayfeng.lesscode.core.DisplayLess;
 import com.jayfeng.lesscode.core.ViewLess;
 
 public class HeaderBar extends LinearLayout {
@@ -118,6 +120,10 @@ public class HeaderBar extends LinearLayout {
 
         mTitleView.setTextColor(mTitleTextColor);
         mTitleView.setTextSize(mTitleTextSize);
+        mTitleView.setPadding(HeaderBarConfig.titlePaddingLeft(),
+                HeaderBarConfig.titlePaddingTop(),
+                HeaderBarConfig.titlePaddingRight(),
+                HeaderBarConfig.titlePaddingBottom());
         if (HeaderBarConfig.titleTypeface() != null) {
             mTitleView.setTypeface(HeaderBarConfig.titleTypeface());
         }
@@ -140,16 +146,13 @@ public class HeaderBar extends LinearLayout {
         }
     }
 
+    /**
+     * ======================
+     * Title
+     * ======================
+     */
     public TextView getTitleView() {
         return mTitleView;
-    }
-
-    public TextView getSubtitleView() {
-        return mSubtitleView;
-    }
-
-    public EditText getSearchEditView() {
-        return mSearchEditView;
     }
 
     public void setTitle(String title) {
@@ -182,6 +185,31 @@ public class HeaderBar extends LinearLayout {
         mTitleView.setText(titleResource);
     }
 
+    public void setTitleBackgroud(@DrawableRes int resid) {
+        mTitleView.setBackgroundResource(resid);
+    }
+
+    public void setTitleBackgroud(Drawable resDrawable) {
+        mTitleView.setBackgroundDrawable(resDrawable);
+    }
+
+    public void setTitlePadding(int left, int top, int right, int bottom) {
+        mTitleView.setPadding(left, top, right, bottom);
+    }
+
+    public void setTitleCompoundDrawable(@DrawableRes int left, @DrawableRes int top , @DrawableRes int right, @DrawableRes int bottom) {
+        mTitleView.setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
+    }
+
+    public void setTitleCompoundDrawablePadding(int padding) {
+        mTitleView.setCompoundDrawablePadding(padding);
+    }
+
+
+    public TextView getSubtitleView() {
+        return mSubtitleView;
+    }
+
     public void setSubtitle(String subtitle) {
         mSubtitleView.setText(subtitle);
         mSubtitleView.setVisibility(View.VISIBLE);
@@ -190,6 +218,15 @@ public class HeaderBar extends LinearLayout {
     public void setSubtitle(int subtitleResource) {
         mSubtitleView.setText(subtitleResource);
         mSubtitleView.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * ======================
+     * Title
+     * ======================
+     */
+    public EditText getSearchEditView() {
+        return mSearchEditView;
     }
 
     public void showBack() {

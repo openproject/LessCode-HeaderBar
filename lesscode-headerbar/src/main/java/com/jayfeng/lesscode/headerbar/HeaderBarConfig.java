@@ -42,6 +42,10 @@ public class HeaderBarConfig {
     private static Typeface mTitleTypeface = null;
     private static int mTitleTextColor = Color.WHITE;
     private static int mTitleTextSize = 14; // sp
+    private static int mTitlePaddingLeft = 0;
+    private static int mTitlePaddingTop = 0;
+    private static int mTitlePaddingRight = 0;
+    private static int mTitlePaddingBottom = 0;
     private static Typeface mSubtitleTypeface = null;
     private static int mSubtitleTextColor = Color.WHITE;
     private static int mSubtitleTextSize = 12; // sp
@@ -126,6 +130,51 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig titleTextSize(int titleTextSize) {
         HeaderBarConfig.mTitleTextSize = titleTextSize;
+        return this;
+    }
+
+    public HeaderBarConfig titlePadding(int left, int top, int right, int bottom) {
+        HeaderBarConfig.mTitlePaddingLeft = left;
+        HeaderBarConfig.mTitlePaddingTop = top;
+        HeaderBarConfig.mTitlePaddingRight = right;
+        HeaderBarConfig.mTitlePaddingBottom = bottom;
+
+        return this;
+    }
+
+    public static int titlePaddingLeft() {
+        return mTitlePaddingLeft;
+    }
+
+    public HeaderBarConfig titlePaddingLeft(int titlePaddingLeft) {
+        HeaderBarConfig.mTitlePaddingLeft = titlePaddingLeft;
+        return this;
+    }
+
+    public static int titlePaddingTop() {
+        return mTitlePaddingTop;
+    }
+
+    public HeaderBarConfig titlePaddingTop(int titlePaddingTop) {
+        HeaderBarConfig.mTitlePaddingTop = titlePaddingTop;
+        return this;
+    }
+
+    public static int titlePaddingRight() {
+        return mTitlePaddingRight;
+    }
+
+    public HeaderBarConfig titlePaddingRight(int titlePaddingRight) {
+        HeaderBarConfig.mTitlePaddingRight = titlePaddingRight;
+        return this;
+    }
+
+    public static int titlePaddingBottom() {
+        return mTitlePaddingBottom;
+    }
+
+    public HeaderBarConfig titlePaddingBottom(int titlePaddingBottom) {
+        HeaderBarConfig.mTitlePaddingBottom = titlePaddingBottom;
         return this;
     }
 

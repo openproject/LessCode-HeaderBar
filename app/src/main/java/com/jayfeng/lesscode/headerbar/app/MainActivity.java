@@ -11,6 +11,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 
+import com.jayfeng.lesscode.core.DisplayLess;
 import com.jayfeng.lesscode.core.ToastLess;
 import com.jayfeng.lesscode.core.ViewLess;
 import com.jayfeng.lesscode.headerbar.HeaderBar;
@@ -29,6 +30,7 @@ public class MainActivity extends BaseActivity {
     private HeaderBar mHeaderBarWithTab;
     private HeaderBar mHeaderBarWithBottomTab;
     private HeaderBar mHeaderBarWithDowndown;
+    private HeaderBar mHeaderBarWithDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,14 @@ public class MainActivity extends BaseActivity {
         mHeaderBarWithSubtitle = ViewLess.$(this, R.id.headerbar_subtitle);
         mHeaderBarWithSubtitle.setTitle("HeaderBar(子标题)");
         mHeaderBarWithSubtitle.setSubtitle("我是副标题");
+
+        mHeaderBarWithDrawable = ViewLess.$(this, R.id.headerbar_title_drawable);
+        mHeaderBarWithDrawable.setTitle("下上箭头");
+        mHeaderBarWithDrawable.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.up, 0);
+        mHeaderBarWithDrawable.getTitleView().setCompoundDrawablePadding(DisplayLess.$dp2px(8));
+        mHeaderBarWithDrawable.getTitleView().setBackgroundResource(R.drawable.app_header_title_bg);
+        mHeaderBarWithDrawable.getTitleView().setPadding(DisplayLess.$dp2px(16),
+                DisplayLess.$dp2px(6), DisplayLess.$dp2px(16), DisplayLess.$dp2px(6));
 
         // HeaderBar With Search
         mHeaderBarWithSearch = ViewLess.$(this, R.id.headerbar_search);
