@@ -37,6 +37,7 @@ public class MyApp extends Application {
                 .itemTextPadding(DisplayLess.$dp2px(16), 0, DisplayLess.$dp2px(16), 0)
                 .itemImagePadding(DisplayLess.$dp2px(8), 0, DisplayLess.$dp2px(8), 0)
                 .itemBackgroudResource(R.drawable.app_item_bg_transparent)
+                .itemMinWidth(DisplayLess.$dp2px(48))
                 // tab
                 .tabBottomBackgroundDrawable(new ColorDrawable(Color.parseColor("#1abc9c")))
                 // popup

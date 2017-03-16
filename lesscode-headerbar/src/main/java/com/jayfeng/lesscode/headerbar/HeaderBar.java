@@ -364,6 +364,9 @@ public class HeaderBar extends LinearLayout {
     private @NonNull HeaderBarItemImage createHeaderBarItemImage(int imageResource, OnClickListener clickListener, ViewGroup rootView) {
         HeaderBarItemImage headerBarItemImage = (HeaderBarItemImage) LayoutInflater.from(getContext()).inflate(R.layout.headerbar_item_image, rootView, false);
         headerBarItemImage.setImageResource(imageResource);
+        if (HeaderBarConfig.itemMinWidth() != -1) {
+            headerBarItemImage.setMinimumWidth(HeaderBarConfig.itemMinWidth());
+        }
         headerBarItemImage.setOnClickListener(clickListener);
         headerBarItemImage.setPadding(HeaderBarConfig.itemImagePaddingLeft(),
                 HeaderBarConfig.itemImagePaddingTop(),
@@ -379,6 +382,9 @@ public class HeaderBar extends LinearLayout {
         headerBarItemText.setTextColor(HeaderBarHelper.createColorStateList(mItemTextNormalColor, mItemTextPressedColor));
         headerBarItemText.setTextSize(mItemTextSize);
         headerBarItemText.setBackgroundResource(HeaderBarConfig.itemBackgroudResource());
+        if (HeaderBarConfig.itemMinWidth() != -1) {
+            headerBarItemText.setMinWidth(HeaderBarConfig.itemMinWidth());
+        }
         headerBarItemText.setOnClickListener(clickListener);
         headerBarItemText.setPadding(HeaderBarConfig.itemTextPaddingLeft(),
                 HeaderBarConfig.itemTextPaddingTop(),

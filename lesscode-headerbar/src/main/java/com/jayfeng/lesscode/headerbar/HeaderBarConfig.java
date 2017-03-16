@@ -63,6 +63,7 @@ public class HeaderBarConfig {
     private static int mItemImagePaddingTop = 0;
     private static int mItemImagePaddingRight = 0;
     private static int mItemImagePaddingBottom = 0;
+    private static int mItemMinWidth = -1;
 
     // tab
     private static Drawable mTabBottomBackgroundDrawable;
@@ -343,6 +344,15 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig itemImagePaddingBottom(int itemImagePaddingBottom) {
         HeaderBarConfig.mItemImagePaddingBottom = itemImagePaddingBottom;
+        return this;
+    }
+
+    public static int itemMinWidth() {
+        return mItemMinWidth;
+    }
+
+    public HeaderBarConfig itemMinWidth(int itemMinWidth) {
+        HeaderBarConfig.mItemMinWidth = itemMinWidth;
         return this;
     }
 
