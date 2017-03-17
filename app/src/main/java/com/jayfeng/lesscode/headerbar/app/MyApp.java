@@ -3,6 +3,7 @@ package com.jayfeng.lesscode.headerbar.app;
 import android.app.Application;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 
 import com.jayfeng.lesscode.core.$;
 import com.jayfeng.lesscode.core.DisplayLess;
@@ -34,7 +35,7 @@ public class MyApp extends Application {
                 .itemTextNormalColor(getResources().getColor(R.color.header_menu_text_normal_color))
                 .itemTextPressedColor(getResources().getColor(R.color.header_menu_text_pressed_color))
                 .itemTextSize(10)
-                .itemTextPadding(DisplayLess.$dp2px(16), 0, DisplayLess.$dp2px(16), 0)
+                .itemTextPadding(DisplayLess.$dp2px(8), 0, DisplayLess.$dp2px(8), 0)
                 .itemImagePadding(DisplayLess.$dp2px(8), 0, DisplayLess.$dp2px(8), 0)
                 .itemBackgroudResource(R.drawable.app_item_bg_transparent)
                 .itemMinWidth(DisplayLess.$dp2px(48))
@@ -42,6 +43,9 @@ public class MyApp extends Application {
                 .tabBottomBackgroundDrawable(new ColorDrawable(Color.parseColor("#1abc9c")))
                 // popup
                 .popupBackgroundDrawable(new ColorDrawable(Color.parseColor("#1abc9c")))
+                .popupItemTextColor(Color.GREEN)
+                .popupItemTextGravity(Gravity.RIGHT)
+                .popupItemTextPadding(DisplayLess.$dp2px(8), DisplayLess.$dp2px(8), DisplayLess.$dp2px(8), DisplayLess.$dp2px(8))
                 .build();
     }
 }

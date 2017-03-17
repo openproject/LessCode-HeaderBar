@@ -116,8 +116,9 @@ public class MainActivity extends BaseActivity {
         mHeaderBarWithDowndown = ViewLess.$(this, R.id.headerbar_dropdown);
         // simple popup list
         List<String> listData = new ArrayList<>();
-        listData.add("AAAAAAAA");
+        listData.add("AAAA");
         listData.add("BBBBBBBB");
+        listData.add("CCCCCCCCCCCCCCC");
         final PopupWindow newPopupWindow = HeaderBarPopupHelper.newPopupWindow(this, listData, new OnPopupItemClick<String>() {
             @Override
             public void onItemClick(int position, String s) {

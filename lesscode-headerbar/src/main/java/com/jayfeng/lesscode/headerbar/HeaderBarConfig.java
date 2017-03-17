@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
+import android.view.Gravity;
 
 import com.jayfeng.lesscode.core.$;
 
@@ -70,6 +71,13 @@ public class HeaderBarConfig {
 
     // popup
     private static Drawable mPopupBackgroundDrawable;
+    private static int mPopupItemTextColor = Color.WHITE;
+    private static int mPopupItemTextSize = 14;
+    private static int mPopupItemTextPaddingLeft = 0;
+    private static int mPopupItemTextPaddingTop = 0;
+    private static int mPopupItemTextPaddingRight = 0;
+    private static int mPopupItemTextPaddingBottom = 0;
+    private static int mPopupItemTextGravity = Gravity.LEFT;
 
     public static int headerHeight() {
         return mHeaderHeight;
@@ -371,6 +379,78 @@ public class HeaderBarConfig {
 
     public HeaderBarConfig popupBackgroundDrawable(Drawable popupBackgroundDrawable) {
         HeaderBarConfig.mPopupBackgroundDrawable = popupBackgroundDrawable;
+        return this;
+    }
+
+    public static int popupItemTextColor() {
+        return mPopupItemTextColor;
+    }
+
+    public HeaderBarConfig popupItemTextColor(int popupItemTextColor) {
+        HeaderBarConfig.mPopupItemTextColor = popupItemTextColor;
+        return this;
+    }
+
+    public static int popupItemTextSize() {
+        return mPopupItemTextSize;
+    }
+
+    public HeaderBarConfig popupItemTextSize(int popupItemTextSize) {
+        HeaderBarConfig.mPopupItemTextSize = popupItemTextSize;
+        return this;
+    }
+
+    public static int popupItemTextGravity() {
+        return mPopupItemTextGravity;
+    }
+
+    public HeaderBarConfig popupItemTextGravity(int popupItemTextGravity) {
+        HeaderBarConfig.mPopupItemTextGravity = popupItemTextGravity;
+        return this;
+    }
+
+    public HeaderBarConfig popupItemTextPadding(int left, int top, int right, int bottom) {
+        HeaderBarConfig.mPopupItemTextPaddingLeft = left;
+        HeaderBarConfig.mPopupItemTextPaddingTop = top;
+        HeaderBarConfig.mPopupItemTextPaddingRight = right;
+        HeaderBarConfig.mPopupItemTextPaddingBottom = bottom;
+
+        return this;
+    }
+
+    public static int popupItemTextPaddingLeft() {
+        return mPopupItemTextPaddingLeft;
+    }
+
+    public HeaderBarConfig popupItemTextPaddingLeft(int popupItemTextPaddingLeft) {
+        HeaderBarConfig.mPopupItemTextPaddingLeft = popupItemTextPaddingLeft;
+        return this;
+    }
+
+    public static int popupItemTextPaddingTop() {
+        return mPopupItemTextPaddingTop;
+    }
+
+    public HeaderBarConfig popupItemTextPaddingTop(int popupItemTextPaddingTop) {
+        HeaderBarConfig.mPopupItemTextPaddingTop = popupItemTextPaddingTop;
+        return this;
+    }
+
+    public static int popupItemTextPaddingRight() {
+        return mPopupItemTextPaddingRight;
+    }
+
+    public HeaderBarConfig popupItemTextPaddingRight(int popupItemTextPaddingRight) {
+        HeaderBarConfig.mPopupItemTextPaddingRight = popupItemTextPaddingRight;
+        return this;
+    }
+
+    public static int popupItemTextPaddingBottom() {
+        return mPopupItemTextPaddingBottom;
+    }
+
+    public HeaderBarConfig popupItemTextPaddingBottom(int popupItemTextPaddingBottom) {
+        HeaderBarConfig.mPopupItemTextPaddingBottom = popupItemTextPaddingBottom;
         return this;
     }
 
