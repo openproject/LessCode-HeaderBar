@@ -351,6 +351,12 @@ public class HeaderBar extends LinearLayout {
         return mCenterContainer;
     }
 
+    public void setCustomCenterContainerMargin(int left, int top, int right, int bottom) {
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mCenterContainer.getLayoutParams();
+        params.setMargins(left, top, right, bottom);
+        mCenterContainer.setLayoutParams(params);
+    }
+
     public RelativeLayout getBottomContainer() {
         return mBottomContainer;
     }

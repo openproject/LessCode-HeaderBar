@@ -89,6 +89,7 @@ public class MainActivity extends BaseActivity {
         mHeaderBarWithTab = ViewLess.$(this, R.id.headerbar_tab);
         mHeaderBarWithTab.showBack();
 
+        mHeaderBarWithTab.setCustomCenterContainerMargin(0, 0, DisplayLess.$dp2px(42), 0);
         RelativeLayout customCenterContainer = mHeaderBarWithTab.showCustomCenterContainer();
         TabLayout tabLayout = new TabLayout(this);
         tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
