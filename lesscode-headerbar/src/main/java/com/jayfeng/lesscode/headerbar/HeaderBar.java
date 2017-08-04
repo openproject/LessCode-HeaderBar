@@ -3,6 +3,7 @@ package com.jayfeng.lesscode.headerbar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
@@ -147,9 +148,28 @@ public class HeaderBar extends LinearLayout {
 
     /**
      * ======================
+     * Header container
+     * ======================
+     */
+
+    public RelativeLayout getHeaderContainer() {
+        return mHeaderContainer;
+    }
+
+    public void setHeaerBackground(Drawable backgroundDrawable) {
+        mHeaderContainer.setBackgroundDrawable(backgroundDrawable);
+    }
+
+    public void setHeaerBackground(int color) {
+        mHeaderContainer.setBackgroundColor(color);
+    }
+
+    /**
+     * ======================
      * Title
      * ======================
      */
+
     public TextView getTitleView() {
         return mTitleView;
     }
